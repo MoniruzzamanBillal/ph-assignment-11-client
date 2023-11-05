@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const Hero = () => {
   const [activeSlide, setActiveSlide] = useState(0);
 
-  console.log(activeSlide);
+  // console.log(activeSlide);
 
   return (
     <div className=" heroCOntainer  ">

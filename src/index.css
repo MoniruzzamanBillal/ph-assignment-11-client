@@ -10,10 +10,12 @@ font-family: 'Open Sans', sans-serif; */
 
 /* shared css  */
 
+/* for headings  */
 .CormorantFont {
   font-family: "Cormorant Upright", serif;
 }
 
+/* for paragraphs  */
 .sansFont {
   font-family: "Open Sans", sans-serif;
 }
