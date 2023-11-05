@@ -30,6 +30,12 @@ const AppProvider = ({ children }) => {
     return signOut(auth);
   };
 
+  // email login
+  const emailLogin = (email, password) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
   // user change effect
   useEffect(() => {
     setLoading(true);
@@ -46,9 +52,9 @@ const AppProvider = ({ children }) => {
     user,
     darkMode,
     toggleTheme,
-
     registerEmail,
     logOut,
+    emailLogin,
   };
 
   return <AppContext.Provider value={appValue}>{children}</AppContext.Provider>;

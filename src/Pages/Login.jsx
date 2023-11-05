@@ -1,15 +1,61 @@
 import React from "react";
 import UseInputHook from "../Hooks/UseInputHook";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import UseAuthContext from "../Hooks/UseAuthContext";
 
 const Login = () => {
+  const { user, loading, emailLogin } = UseAuthContext();
   const emailInput = UseInputHook();
   const passwordInput = UseInputHook();
 
+  console.log(user);
+
+  //   toast for success
+  const addedSuccessFully = () =>
+    toast.success("logged in successfully!", {
+      position: "top-center",
+      autoClose: 1200,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+
+  // toast for error login
+  const errorlogin = () =>
+    toast.warn("Username or password is incorrect!!", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+
+  // email login
   const handleLogin = () => {
-    console.log("click");
-    console.log(emailInput.value);
-    console.log(passwordInput.value);
+    emailLogin(emailInput.value, passwordInput.value)
+      .then((user) => {
+        console.log(user);
+        addedSuccessFully();
+
+        // setTimeout(() => {
+        //   navigate(location?.state ? location.state : "/");
+        // }, "1200");
+      })
+      .catch((error) => {
+        console.log(error);
+        errorlogin();
+      });
+
+    emailInput.reset();
+    passwordInput.reset();
   };
 
   return (
@@ -25,7 +71,7 @@ const Login = () => {
       <div className="container flex items-center justify-center flex-1 h-full mx-auto">
         <div className="w-full max-w-lg  ">
           <div className="leading-loose">
-            <div className=" w-[56%] xsm:w-[70%] sm:w-[80%] md:w-[85%] xmd:w-[90%] lg:w-[100%]  p-4 xsm:p-5 sm:p-7 md:p-10 m-auto rounded shadow-xl bg-gray-200 dark:bg-gray-700 backdrop-blur bg-opacity-60  ">
+            <div className=" w-[56%] xsm:w-[70%] sm:w-[80%] md:w-[85%] xmd:w-[90%] lg:w-[100%]  p-4 xsm:p-5 sm:p-7 md:p-10 m-auto rounded shadow-xl bg-gray-200 dark:bg-gray-700 backdrop-blur bg-opacity-60 dark:backdrop-blur dark:bg-opacity-60 ">
               <p className=" mb-3 xsm:mb-5 sm:mb-8 text-xl xsm:text-2xl text-center font-semibold CormorantFont text-gray-700 dark:text-white  ">
                 Login
               </p>
