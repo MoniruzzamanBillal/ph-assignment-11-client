@@ -5,8 +5,9 @@ import InputField from "../Components/InputField";
 import { Link, useNavigate } from "react-router-dom";
 import UseInputHook from "../Hooks/UseInputHook";
 import { motion } from "framer-motion";
-import UseAuthContext from "../Hooks/UseAuthContext";
 import { updateProfile } from "firebase/auth";
+import UseAuthContext from "../Hooks/UseAuthContext";
+
 const Register = () => {
   const navigate = useNavigate();
   const [isChecked, setIsChecked] = useState(false); // for checkbox state
@@ -135,7 +136,7 @@ const Register = () => {
           });
         handleLogout();
 
-        // navigate(`/login`);
+        navigate(`/login`);
       })
       .catch((error) => {
         const errormsg = error.message;
@@ -173,7 +174,7 @@ const Register = () => {
   //
 
   return (
-    <div className="  pt-[3.2rem] xsm:pt-[3.5rem] sm:pt-[3.7rem] ">
+    <div className="   ">
       {/* <!-- component --> */}
 
       <div

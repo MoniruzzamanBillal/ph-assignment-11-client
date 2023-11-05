@@ -24,12 +24,13 @@ const navLink = [
 ];
 
 const NavBar = () => {
-  const { user, loading, darkMode, toggleTheme } = UseAuthContext();
+  const { user, loading, darkMode, toggleTheme, logOut } = UseAuthContext();
   const [toggle, setToggle] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
+  // useeffect for scrool position
   useEffect(() => {
-    console.log(window.scrollY);
+    // console.log(window.scrollY);
 
     const handleScrool = () => {
       setScrollPosition(window.scrollY);
@@ -55,18 +56,19 @@ const NavBar = () => {
     setToggle(!toggle);
   };
 
-  //   console.log(user);
-  //   console.log(loading);
+  // logout functionality
+  const handleLogout = () => {
+    logOut()
+      .then((response) => console.log(response))
+      .catch((error) => console.log(error));
+  };
 
-  if (loading) {
-    return <p>Loading.......</p>;
-  }
   //
   return (
     <div
       className={` navContainer  z-50 py-2.5 ${
-        scrollPosition >= 30 ? " " : ""
-      }  bg-gray-100 dark:bg-gray-400 fixed w-full drop-shadow-lg `}
+        scrollPosition >= 30 ? " bg-gray-100 dark:bg-gray-400" : "  "
+      }   fixed w-full drop-shadow-lg `}
     >
       <div className="navWrapper flex justify-between w-[98%] xsm:w-[97%] lg:w-[96%] m-auto items-center ">
         {/* nav left  */}
@@ -80,7 +82,11 @@ const NavBar = () => {
                 <div className="logo w-[2.1rem] h-[2.1rem] xsm:w-[2.6rem] xsm:h-[2.5rem] sm:w-[2.8rem] sm:h-[2.7rem]  rounded-md overflow-auto ">
                   <img src="/favicon.svg" className="  w-full h-full " alt="" />{" "}
                 </div>
-                <p className=" text-gray-900 dark:text-white text-sm xsm:text-base lg:text-xl pl-1.5 CormorantFont ">
+                <p
+                  className={` ${
+                    scrollPosition >= 30 ? " text-gray-900 " : " text-white "
+                  }   dark:text-white text-sm xsm:text-base lg:text-xl pl-1.5 CormorantFont  `}
+                >
                   Resto
                 </p>
               </div>
@@ -96,9 +102,9 @@ const NavBar = () => {
             <NavLink
               key={ind}
               to={ele.link}
-              className={`  ${
-                navLink.length - 1 === ind ? "mr-0" : "mr-5"
-              } relative group  text-base lg:text-lg text-gray-700 dark:text-[#E4F1FF] hover:text-blue-500 hover:drop-shadow-md  `}
+              className={`  ${navLink.length - 1 === ind ? "mr-0" : "mr-5"}   ${
+                scrollPosition >= 30 ? " " : " text-white "
+              }     relative group  text-base lg:text-lg   text-gray-700 dark:text-[#E4F1FF] hover:text-blue-500 hover:drop-shadow-md  `}
             >
               {ele.item}
               <span className="absolute -bottom-[.15rem] left-0 w-0 h-[.14rem] bg-blue-400 group-hover:w-full group-hover:transition-all"></span>
@@ -133,7 +139,7 @@ const NavBar = () => {
             {user ? (
               <Link
                 className=" bg-gray-600 py-2 px-3 lg:px-4  text-white font-semibold text-xs lg:text-sm  "
-                // onClick={() => handleLogout()}
+                onClick={() => handleLogout()}
               >
                 Log out
               </Link>

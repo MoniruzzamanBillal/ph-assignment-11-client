@@ -73,8 +73,12 @@ const Login = () => {
           <div className="leading-loose">
             <div className=" w-[56%] xsm:w-[70%] sm:w-[80%] md:w-[85%] xmd:w-[90%] lg:w-[100%]  p-4 xsm:p-5 sm:p-7 md:p-10 m-auto rounded shadow-xl bg-gray-200 dark:bg-gray-700 backdrop-blur bg-opacity-60 dark:backdrop-blur dark:bg-opacity-60 ">
               <p className=" mb-3 xsm:mb-5 sm:mb-8 text-xl xsm:text-2xl text-center font-semibold CormorantFont text-gray-700 dark:text-white  ">
-                Login
+                Login to your account
               </p>
+
+              {/*  */}
+              {/*  */}
+
               <div className="mb-3">
                 <div className=" relative ">
                   <input
@@ -106,7 +110,33 @@ const Login = () => {
                   Log in
                 </button>
               </div>
-              <div className="text-center mt-2 ">
+
+              {/*  */}
+              {/*  */}
+              {/*  */}
+              <div class="flex justify-center item-center  py-4">
+                <button
+                  type="button"
+                  class="py-2 px-4 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
+                >
+                  <svg
+                    width="20"
+                    height="20"
+                    fill="currentColor"
+                    class="mr-2"
+                    viewBox="0 0 1792 1792"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path d="M896 786h725q12 67 12 128 0 217-91 387.5t-259.5 266.5-386.5 96q-157 0-299-60.5t-245-163.5-163.5-245-60.5-299 60.5-299 163.5-245 245-163.5 299-60.5q300 0 515 201l-209 201q-123-119-306-119-129 0-238.5 65t-173.5 176.5-64 243.5 64 243.5 173.5 176.5 238.5 65q87 0 160-24t120-60 82-82 51.5-87 22.5-78h-436v-264z"></path>
+                  </svg>
+                  Google
+                </button>
+              </div>
+              {/*  */}
+              {/*  */}
+              {/*  */}
+
+              <div className="text-center  ">
                 <a className="right-0 inline-block text-sm font-light align-baseline text-gray-900 hover:text-gray-950 dark:text-gray-100 dark:hover:text-gray-200 ">
                   Don't have account ?{" "}
                   <span className=" text-blue-700 font-bold cursor-pointer ">
