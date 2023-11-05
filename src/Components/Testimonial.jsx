@@ -5,7 +5,7 @@ import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 
 const Testimonial = () => {
   return (
-    <div className="testimonialContainer py-8  ">
+    <div className="testimonialContainer  ">
       <div
         className="testimonialWrapper  h-[35rem] bg-cover bg-no-repeat bg-center   "
         style={{

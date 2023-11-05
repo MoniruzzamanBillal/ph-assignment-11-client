@@ -6,6 +6,7 @@ import Hero from "../Components/Hero";
 import WhatWeOffer from "../Components/WhatWeOffer";
 import Testimonial from "../Components/Testimonial";
 import WhyChoose from "../Components/WhyChoose";
+import TopSelling from "../Components/TopSelling";
 
 const Home = () => {
   const { user, loading } = UseAuthContext();
@@ -30,6 +31,12 @@ const Home = () => {
           <WhatWeOffer />
         </div>
         {/* what we offer section  */}
+
+        {/* top selling item  */}
+        <div className="topSelling">
+          <TopSelling />
+        </div>
+        {/* top selling item  */}
 
         {/* testimonial container  */}
         <div className="testimonialContainer">

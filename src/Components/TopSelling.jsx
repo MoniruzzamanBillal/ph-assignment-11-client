@@ -1,0 +1,50 @@
+import React from "react";
+import ItemCard from "./ItemCard";
+
+const TopSelling = () => {
+  return (
+    <div className="topSelling bg-red-50 dark:bg-[#161718] py-10 ">
+      <div className="topSellingWrapper  w-[90%] m-auto ">
+        {/*  */}
+        <div className="topHeading  text-center text-3xl font-semibold CormorantFont text-[#FDBB2E] dark:goldenText mb-1 ">
+          <h1>Top selling items</h1>
+        </div>
+        {/*  */}
+
+        {/* sepoerator image  */}
+
+        <div className="seperatorImg  w-[9rem] flex justify-center items-center mb-8 text-center m-auto  ">
+          <img
+            src="../../public/images/slider/separator.svg"
+            className="  w-full h-full "
+            alt=""
+          />
+        </div>
+        {/* sepoerator image  */}
+
+        {/* card items  */}
+        <div className="cardItems  grid grid-cols-1s sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-7 m-auto ">
+          <ItemCard />
+          <ItemCard />
+          <ItemCard />
+          <ItemCard />
+          <ItemCard />
+          <ItemCard />
+        </div>
+        {/* card items  */}
+
+        {/* see all button  */}
+        <div className="seeAll  mt-10 m-auto text-center ">
+          <button className="py-2 px-6 font-semibold bg-violet-500 hover:bg-violet-600 dark:bg-violet-900 dark:hover:bg-violet-950 rounded text-gray-100 active:scale-95 ">
+            See all
+          </button>
+        </div>
+        {/* see all button  */}
+
+        {/*  */}
+      </div>
+    </div>
+  );
+};
+
+export default TopSelling;
