@@ -1,10 +1,48 @@
-import React, { useState } from "react";
+import React, { useEffect, useState, useSyncExternalStore } from "react";
 import ItemCard from "../Components/ItemCard";
+import { useQuery, useQueryClient } from "react-query";
+import axios from "axios";
+import Loading from "../Components/Loading";
+import { useLoaderData } from "react-router-dom";
+import UseAxios from "../Hooks/UseAxios";
 
 const Menu = () => {
-  const [currentPage, setCurrentPage] = useState(0);
+  const baseAxiosUrl = UseAxios();
 
-  const pages = [0, 1, 2, 3, 4, 5];
+  const queryClient = useQueryClient();
+  const [totalItemCount, setTotalItemCount] = useState(0);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [menus, setMenus] = useState([]);
+
+  const dataPerPage = 9;
+
+  const numofpages = Math.ceil(totalItemCount / dataPerPage);
+
+  // effect to set total data count
+  useEffect(() => {
+    baseAxiosUrl
+      .get(`/productCount`)
+      .then((data) => setTotalItemCount(data?.data?.count))
+      .catch((error) => console.log(error));
+  }, []);
+
+  const pages = [...new Array(numofpages).keys()];
+
+  // console.log(currentPage);
+
+  // effect for getting data
+  useEffect(() => {
+    baseAxiosUrl
+      .get(`/menus`, { params: { dataPerPage, currentPage } }) // sending with wuery
+
+      .then((response) => {
+        // console.log(response?.data)
+        setMenus(response?.data);
+      })
+      .catch((error) => console.log(error));
+  }, [dataPerPage, currentPage]);
+
+  console.log(menus);
 
   return (
     <div className="menuContainer relative bg-gray-50 dark:bg-[#161718] pt-[4rem] xsm:pt-[4.2rem] sm:pt-[4.5rem] md:pt-[5rem] pb-6 ">
@@ -82,15 +120,7 @@ const Menu = () => {
 
       {/* item card */}
       <div className="itemCard relative z-[10]  mt-1 xsm:mt-2 sm:mt-4 w-[96%] sm:w-[90%] m-auto grid grid-cols-1 xsm:grid-cols-2 xmd:grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-8 ">
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
-        <ItemCard />
+        {menus && menus.map((menu, ind) => <ItemCard key={ind} menu={menu} />)}
       </div>
 
       {/* item card */}

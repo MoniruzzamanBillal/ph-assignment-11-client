@@ -3,6 +3,7 @@ import { Carousel } from "flowbite-react";
 
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   const [activeSlide, setActiveSlide] = useState(0);
@@ -89,9 +90,11 @@ const Hero = () => {
                   transition={{ duration: 1, delay: 0.9 }}
                   className="bannerBtn  "
                 >
-                  <button className="  hover:bg-[#e4c590] transition-all duration-300  py-2 px-4 rounded font-semibold goldenText hover:text-gray-950 border border-[#e4c590] ">
-                    Our menu
-                  </button>
+                  <Link to="menu">
+                    <button className="  hover:bg-[#e4c590] transition-all duration-300  py-2 px-4 rounded font-semibold goldenText hover:text-gray-950 border border-[#e4c590] ">
+                      Our menu
+                    </button>
+                  </Link>
                 </motion.div>
                 {/* banner button  */}
 
@@ -174,9 +177,11 @@ const Hero = () => {
                   transition={{ duration: 1, delay: 0.9 }}
                   className="bannerBtn  "
                 >
-                  <button className="  hover:bg-[#e4c590] transition-all duration-300  py-2 px-4 rounded font-semibold goldenText hover:text-gray-950 border border-[#e4c590] ">
-                    Our menu
-                  </button>
+                  <Link to="menu">
+                    <button className="  hover:bg-[#e4c590] transition-all duration-300  py-2 px-4 rounded font-semibold goldenText hover:text-gray-950 border border-[#e4c590] ">
+                      Our menu
+                    </button>
+                  </Link>
                 </motion.div>
                 {/* banner button  */}
 
@@ -259,9 +264,11 @@ const Hero = () => {
                   transition={{ duration: 1, delay: 0.9 }}
                   className="bannerBtn  "
                 >
-                  <button className="  hover:bg-[#e4c590] transition-all duration-300  py-2 px-4 rounded font-semibold goldenText hover:text-gray-950 border border-[#e4c590] ">
-                    Our menu
-                  </button>
+                  <Link to="menu">
+                    <button className="  hover:bg-[#e4c590] transition-all duration-300  py-2 px-4 rounded font-semibold goldenText hover:text-gray-950 border border-[#e4c590] ">
+                      Our menu
+                    </button>
+                  </Link>
                 </motion.div>
                 {/* banner button  */}
 

@@ -1,13 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const ItemCard = () => {
+const ItemCard = ({ menu }) => {
+  // console.log(menu);
+  const {
+    foodCategory,
+    foodImage,
+    foodName,
+    foodOrigin,
+    ingredients,
+    price,
+    quantity,
+  } = menu;
+
   return (
     <div className="max-w-sm m-auto group  bg-white  border border-gray-200 rounded-lg shadow dark:bg-gray-600 dark:border-gray-700 overflow-hidden ">
       <div className="cardImg  flex justify-center items-center self-center group-hover:scale-105 duration-500 ">
         <img
           className="rounded-t-lg"
-          src="https://i.ibb.co/J27DVDZ/breakfast1.png"
+          // src="https://i.ibb.co/J27DVDZ/breakfast1.png"
+          src={foodImage}
           alt=""
         />
       </div>
@@ -18,13 +30,13 @@ const ItemCard = () => {
         <div className="cardRow1 mb-2.5  flex justify-between items-center  font-semibold sansFont ">
           {/* row1 column1  */}
           <div className="cardColumn1  text-lg dark:text-gray-100 ">
-            Muffin{" "}
+            {foodName}
           </div>
           {/* row1 column1  */}
 
           {/* row1 column2  */}
           <div className="cardColumn2  text-lg dark:text-gray-100 ">
-            price : <span className="text-[#FD5631]">$2500</span>
+            price : <span className="text-[#FD5631]">${price}</span>
           </div>
           {/* row1 column2  */}
         </div>
@@ -37,12 +49,12 @@ const ItemCard = () => {
           {" "}
           {/* row1 column1  */}
           <div className="cardColumn1  dark:text-gray-100 text-sm ">
-            Category: <span className="text-[#FD5631]">Breakfast</span>{" "}
+            Category: <span className="text-[#FD5631]">{foodCategory}</span>{" "}
           </div>
           {/* row1 column1  */}
           {/* row12 column2  */}
           <div className="cardColumn1 CormorantFont font-semibold dark:text-gray-100  ">
-            available: <span className="text-[#FD5631]">1</span>{" "}
+            available: <span className="text-[#FD5631]">{quantity}</span>{" "}
           </div>
           {/* row2 column2  */}
         </div>
