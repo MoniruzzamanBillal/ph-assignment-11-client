@@ -5,6 +5,7 @@ import Register from "../Pages/Register";
 import Home from "../Pages/Home";
 import Test from "../Test/Test";
 import Menu from "../Pages/Menu";
+import Food from "../Pages/Food";
 
 const Router = createBrowserRouter([
   {
@@ -22,6 +23,11 @@ const Router = createBrowserRouter([
       {
         path: "/menu",
         element: <Menu />,
+      },
+      {
+        // path: "/food/:id",
+        path: "/food",
+        element: <Food />,
       },
     ],
   },
