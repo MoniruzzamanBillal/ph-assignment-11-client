@@ -34,7 +34,7 @@ const avatarItems = [
   },
   {
     item: "My order",
-    link: "/",
+    link: "/order",
   },
 ];
 
