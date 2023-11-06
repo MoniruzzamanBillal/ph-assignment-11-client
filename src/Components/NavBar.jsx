@@ -26,7 +26,7 @@ const navLink = [
 const avatarItems = [
   {
     item: "My food",
-    link: "/",
+    link: "/myFood",
   },
   {
     item: "Add food",

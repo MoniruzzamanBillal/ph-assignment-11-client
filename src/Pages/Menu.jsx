@@ -11,7 +11,7 @@ const Menu = () => {
       {/*  */}
 
       {/* background pattern  */}
-      <div className="pattern  w-full h-full opacity-10 dark:opacity-40 absolute top-0 left-0 ">
+      <div className="pattern  w-full h-full opacity-5 dark:opacity-40 absolute top-0 left-0 ">
         <img
           src="https://i.ibb.co/44P55tX/form-pattern.png"
           className=" w-full h-full "
