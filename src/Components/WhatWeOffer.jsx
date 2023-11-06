@@ -19,7 +19,7 @@ const WhatWeOffer = () => {
 
       <div className="rightTopImg   absolute top-0 right-0  w-[6rem] xsm:w-[7rem] sm:w-[8rem] md:w-[10rem] xmd:w-[12rem] lg:w-[14rem]  ">
         <img
-          src="../../public/images/service/shape-2.png"
+          src="https://i.ibb.co/Pt1Rq68/shape-2.png"
           className=" w-full h-full "
           alt=""
         />
@@ -35,7 +35,7 @@ const WhatWeOffer = () => {
 
       <div className="leftbottomleft absolute bottom-0 left-0 w-[5rem] xsm:w-[6rem] sm:w-[7rem] md:w-[9rem] xmd:w-[11rem] lg:w-[13rem]  ">
         <img
-          src="../../public/images/service/shape-1.png"
+          src="https://i.ibb.co/1GjGz1B/shape-1.png"
           className=" w-full h-full "
           alt=""
         />
@@ -118,7 +118,7 @@ const WhatWeOffer = () => {
                 {/* break fast top img  */}
                 <div className="breakfastTop  m-auto flex justify-center items-center   ">
                   <img
-                    src="../../public/images/service/service-1.jpg"
+                    src="https://i.ibb.co/J3n4Bmb/service-1.jpg"
                     className=""
                     alt=""
                   />
@@ -166,7 +166,7 @@ const WhatWeOffer = () => {
                 {/* break fast top img  */}
                 <div className="breakfastTop  m-auto flex justify-center items-center  ">
                   <img
-                    src="../../public/images/service/service-1.jpg"
+                    src="https://i.ibb.co/9GCMLtt/service-2.jpg"
                     className=""
                     alt=""
                   />
@@ -200,7 +200,7 @@ const WhatWeOffer = () => {
                 {/* break fast top img  */}
                 <div className="drinkTop  m-auto flex justify-center items-center  z-[10] ">
                   <img
-                    src="../../public/images/service/service-3.jpg"
+                    src="https://i.ibb.co/Twg3Gh0/service-3.jpg"
                     className=""
                     alt=""
                   />

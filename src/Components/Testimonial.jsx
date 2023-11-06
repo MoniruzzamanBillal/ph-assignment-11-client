@@ -9,7 +9,7 @@ const Testimonial = () => {
       <div
         className="testimonialWrapper  h-[35rem] bg-cover bg-no-repeat bg-center   "
         style={{
-          backgroundImage: 'url("../../public/images/testimonial-bg.jpg")',
+          backgroundImage: 'url("https://i.ibb.co/fSW8XQp/testimonial-bg.jpg")',
         }}
       >
         {/*  */}
@@ -24,7 +24,7 @@ const Testimonial = () => {
             <div className="relative block">
               <img
                 alt="profil"
-                src="../../public/images/testi-avatar.jpg"
+                src="https://i.ibb.co/091yhHD/testi-avatar.jpg"
                 className="mx-auto object-cover rounded-full h-40 w-40 "
               />
             </div>
@@ -49,7 +49,7 @@ const Testimonial = () => {
             <div className="relative block">
               <img
                 alt="profil"
-                src="../../public/images/testi-avatar.jpg"
+                src="https://i.ibb.co/091yhHD/testi-avatar.jpg"
                 className="mx-auto object-cover rounded-full h-40 w-40 "
               />
             </div>
@@ -73,7 +73,7 @@ const Testimonial = () => {
             <div className="relative block">
               <img
                 alt="profil"
-                src="../../public/images/testi-avatar.jpg"
+                src="https://i.ibb.co/091yhHD/testi-avatar.jpg"
                 className="mx-auto object-cover rounded-full h-40 w-40 "
               />
             </div>

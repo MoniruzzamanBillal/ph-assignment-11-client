@@ -26,6 +26,7 @@ const navLink = [
 const NavBar = () => {
   const { user, loading, darkMode, toggleTheme, logOut } = UseAuthContext();
   const [toggle, setToggle] = useState(false);
+  const [toggleAvatar, setToggleAvatar] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
 
   // useeffect for scrool position
@@ -117,28 +118,60 @@ const NavBar = () => {
         {/* nav right  */}
         <div className="navRight  flex justify-between items-center  ">
           {/* !mobile view  */}
-          <div className="notMobile hidden md:flex justify-center items-center ">
+
+          <div className="notMobile flex justify-center items-center ">
             {/* avatar image  */}
-            <div className="avaterImg pr-2">
+            <div
+              className="avaterImg pr-2 relative  "
+              onClick={() => setToggleAvatar(!toggleAvatar)}
+            >
               {user?.photoURL && (
-                <div className="flex items-center gap-1">
+                <div className="flex items-center gap-1 cursor-pointer ">
                   <p className=" dancingFont font-semibold text-xs lg:text-sm">
                     {" "}
-                    {user?.displayName}{" "}
+                    {user.displayName}{" "}
                   </p>
                   <img
                     className=" w-7 h-7 lg:w-9 lg:h-9  rounded-full ring-1 ring-gray-300 dark:ring-gray-500"
-                    src={user?.photoURL}
+                    src={user.photoURL}
                     alt="Bordered avatar"
                   />
                 </div>
               )}
+
+              {/* avatar item  */}
+              {toggleAvatar && (
+                <div className="menuList text-center py-2 bg-[#183D3D] dark:bg-gray-300 absolute transform -translate-x-1/2 -translate-y-1/2 -right-[4.8rem] top-[6.9rem] xsm:top-[7rem] lg:top-[7.4rem] w-[10rem] ">
+                  <div className="menuItem mb-4  ">
+                    {navLink.map((ele, ind) => (
+                      <div
+                        key={ind}
+                        className={` text-base ${
+                          ind === navLink.length - 1 ? "pb-0" : "pb-3"
+                        }  `}
+                      >
+                        <a
+                          href={ele.link}
+                          className="  cursor-pointer text-gray-50 dark:text-gray-900 "
+                          onClick={() => handleToggle()}
+                        >
+                          {" "}
+                          {ele.item}{" "}
+                        </a>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* avatar item  */}
             </div>
+
             {/* avatar image  */}
 
             {user ? (
               <Link
-                className=" bg-gray-600 py-2 px-3 lg:px-4  text-white font-semibold text-xs lg:text-sm  "
+                className=" hidden md:block bg-gray-600 py-2 px-3 lg:px-4  text-white font-semibold text-xs lg:text-sm  "
                 onClick={() => handleLogout()}
               >
                 Log out
@@ -146,7 +179,7 @@ const NavBar = () => {
             ) : (
               <Link
                 to={`/login`}
-                className=" bg-gray-600 py-2 px-3 lg:px-4  text-white font-semibold text-xs lg:text-sm "
+                className=" hidden md:block bg-gray-600 py-2 px-3 lg:px-4  text-white font-semibold text-xs lg:text-sm "
               >
                 Log in
               </Link>

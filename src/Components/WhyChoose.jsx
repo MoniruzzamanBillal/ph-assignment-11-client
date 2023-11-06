@@ -14,7 +14,7 @@ const WhyChoose = () => {
 
           <div className="seperatorImg  m-auto w-[8rem] flex justify-center items-center mb-6 ">
             <img
-              src="../../public/images/slider/separator.svg"
+              src="https://i.ibb.co/pr3Ryq7/separator.png"
               className="  w-full h-full "
               alt=""
             />

@@ -98,7 +98,7 @@ const Menu = () => {
       {/* item card section  */}
 
       {/* pagination container  */}
-      <div className="paginationContainer  sansFont ">
+      <div className="paginationContainer  sansFont relative z-[10] ">
         {/*  */}
         <div className="pagination   mt-3 py-4 text-center text-xs xsm:text-sm sm:text-base  ">
           <button
