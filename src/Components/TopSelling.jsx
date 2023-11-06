@@ -3,10 +3,30 @@ import ItemCard from "./ItemCard";
 
 const TopSelling = () => {
   return (
-    <div className="topSelling bg-red-50 dark:bg-[#161718] py-10 ">
-      <div className="topSellingWrapper  w-[90%] m-auto ">
+    <div className="topSelling bg-blue-50 dark:bg-[#161718] py-4 xsm:py-6 sm:py-8 md:py-10 relative ">
+      {/* right top icon  */}
+      <div className="rightTopIcon w-[7rem] md:w-[8rem] xmd:w-[9rem] lg:w-[10rem]  absolute top-0 right-0 ">
+        <img
+          src="https://i.ibb.co/Pt1Rq68/shape-2.png"
+          className=" w-full h-full "
+          alt=""
+        />
+      </div>
+      {/* right top icon  */}
+
+      {/* right bottom icon  */}
+      <div className="rightBottom  w-[17rem] xsm:w-[22rem] sm:w-[27rem] md:w-[31rem] xmd:w-[36rem] lg:w-[40rem] absolute bottom-0 right-0 ">
+        <img
+          src="https://i.ibb.co/x39pHgk/shape-6.png"
+          className=" w-full h-full "
+          alt=""
+        />
+      </div>
+      {/* right bottom icon  */}
+
+      <div className="topSellingWrapper  w-[90%] m-auto relative z-[10] ">
         {/*  */}
-        <div className="topHeading  text-center text-3xl font-semibold CormorantFont text-[#FDBB2E] dark:goldenText mb-1 ">
+        <div className="topHeading  text-center text-3xl font-semibold CormorantFont text-[#ffba24] dark:goldenText mb-1 ">
           <h1>Top selling items</h1>
         </div>
         {/*  */}

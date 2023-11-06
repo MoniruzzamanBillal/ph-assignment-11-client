@@ -10,11 +10,11 @@ const ItemCard = () => {
           alt=""
         />
       </div>
-      <div className=" cardBody p-4 bg-gray-100 dark:bg-gray-500 flex flex-col  ">
+      <div className=" cardBody p-3 sm:p-2 md:p-3 bg-gray-100 dark:bg-gray-500 flex flex-col  ">
         {/* \ */}
         {/* \ */}
         {/* card row 1  */}
-        <div className="cardRow1 mb-2  flex justify-between items-center  font-semibold sansFont ">
+        <div className="cardRow1 mb-2.5  flex justify-between items-center  font-semibold sansFont ">
           {/* row1 column1  */}
           <div className="cardColumn1  text-lg dark:text-gray-100 ">
             Muffin{" "}
@@ -35,10 +35,15 @@ const ItemCard = () => {
         <div className="cardRow2 mb-4 flex justify-between items-center  font-semibold sansFont ">
           {" "}
           {/* row1 column1  */}
-          <div className="cardColumn1  dark:text-gray-100 ">
-            Category: <span className="goldenText">Breakfast</span>{" "}
+          <div className="cardColumn1  dark:text-gray-100 text-sm ">
+            Category: <span className="text-[#FD5631]">Breakfast</span>{" "}
           </div>
           {/* row1 column1  */}
+          {/* row12 column2  */}
+          <div className="cardColumn1 CormorantFont font-semibold dark:text-gray-100  ">
+            available: <span className="text-[#FD5631]">1</span>{" "}
+          </div>
+          {/* row2 column2  */}
         </div>
         {/* card row 2  */}
 

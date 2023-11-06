@@ -10,8 +10,8 @@ const navLink = [
     link: "/",
   },
   {
-    item: "Foods",
-    link: "/",
+    item: "Our Menu",
+    link: "/menu",
   },
   {
     item: "Blog",
@@ -43,7 +43,7 @@ const NavBar = () => {
     };
   }, []);
 
-  //   console.log(scrollPosition);
+  // console.log(scrollPosition);
 
   // toggle dark theme
   const handleTheme = () => {

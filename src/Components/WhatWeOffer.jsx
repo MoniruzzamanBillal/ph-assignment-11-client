@@ -8,8 +8,6 @@ const WhatWeOffer = () => {
     triggerOnce: false,
   });
 
-  console.log(ref);
-
   return (
     <div
       className="WhatWeOffer bg-gray-200 dark:bg-[#0E0D0C] relative py-16 "
