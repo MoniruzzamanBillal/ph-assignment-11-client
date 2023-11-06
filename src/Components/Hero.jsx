@@ -51,7 +51,7 @@ const Hero = () => {
                   className="seperatorImg  w-[10rem] flex justify-center items-center mb-4 "
                 >
                   <img
-                    src="../../public/images/slider/separator.svg"
+                    src="https://i.ibb.co/pr3Ryq7/separator.png"
                     className="  w-full h-full "
                     alt=""
                   />
@@ -136,7 +136,7 @@ const Hero = () => {
                   className="seperatorImg  w-[10rem] flex justify-center items-center mb-4 "
                 >
                   <img
-                    src="../../public/images/slider/separator.svg"
+                    src="https://i.ibb.co/pr3Ryq7/separator.png"
                     className="  w-full h-full "
                     alt=""
                   />
@@ -221,7 +221,7 @@ const Hero = () => {
                   className="seperatorImg  w-[10rem] flex justify-center items-center mb-4 "
                 >
                   <img
-                    src="../../public/images/slider/separator.svg"
+                    src="https://i.ibb.co/pr3Ryq7/separator.png"
                     className="  w-full h-full "
                     alt=""
                   />

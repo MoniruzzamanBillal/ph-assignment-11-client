@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const features = [
   { name: "Category", description: "Breakfast" },
@@ -12,7 +13,6 @@ const features = [
   { name: "Cheaf", description: "Monir" },
   { name: "Includes", description: "Wood card tray and 3 refill packs" },
 ];
-
 const Food = () => {
   return (
     <div className="foodContainer bg-white  dark:bg-[#161718] pt-[4rem] xsm:pt-[4.2rem] sm:pt-[4.5rem] md:pt-[5rem] pb-6 ">
@@ -36,6 +36,7 @@ const Food = () => {
 
             <div className=" relative z-[10] p-4 pt-8 md:pt-0 leading-normal flex flex-col justify-start text-lg md:text-base xmd:text-lg  ">
               {/* heading  */}
+
               <h5 className="mb-4 text-3xl font-bold tracking-tight text-gray-900 dark:text-white CormorantFont">
                 Details
               </h5>
@@ -109,9 +110,13 @@ const Food = () => {
               {/* item Ingredients  */}
 
               {/* order button  */}
-              <button className="orderNow mt-5 py-2 px-5 bg-gradient-to-r from-cyan-500 to-blue-500  hover:scale-105 duration-300 active:scale-95 sansFont font-semibold rounded text-gray-100 ">
-                Order Now
-              </button>
+
+              <Link to={`/buy`}>
+                <button className="orderNow mt-5 py-2 px-5 bg-gradient-to-r from-cyan-500 to-blue-500  hover:scale-105 duration-300 active:scale-95 sansFont font-semibold rounded text-gray-100 ">
+                  Order Now
+                </button>
+              </Link>
+
               {/* order button  */}
             </div>
           </div>

@@ -35,7 +35,7 @@ const TopSelling = () => {
 
         <div className="seperatorImg  w-[9rem] flex justify-center items-center mb-8 text-center m-auto  ">
           <img
-            src="../../public/images/slider/separator.svg"
+            src="https://i.ibb.co/pr3Ryq7/separator.png"
             className="  w-full h-full "
             alt=""
           />
