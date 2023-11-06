@@ -7,6 +7,7 @@ import Test from "../Test/Test";
 import Menu from "../Pages/Menu";
 import Food from "../Pages/Food";
 import Buy from "../Pages/Buy";
+import AddFood from "../Pages/AddFood";
 
 const Router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ const Router = createBrowserRouter([
         // path: "/buy/:id",
         path: "/buy",
         element: <Buy />,
+      },
+      {
+        path: "/addFood",
+        element: <AddFood />,
       },
     ],
   },

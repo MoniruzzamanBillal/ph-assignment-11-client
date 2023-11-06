@@ -23,6 +23,21 @@ const navLink = [
   },
 ];
 
+const avatarItems = [
+  {
+    item: "My food",
+    link: "/",
+  },
+  {
+    item: "Add food",
+    link: "/addFood",
+  },
+  {
+    item: "My order",
+    link: "/",
+  },
+];
+
 const NavBar = () => {
   const { user, loading, darkMode, toggleTheme, logOut } = UseAuthContext();
   const [toggle, setToggle] = useState(false);
@@ -141,9 +156,9 @@ const NavBar = () => {
 
               {/* avatar item  */}
               {toggleAvatar && (
-                <div className="menuList text-center py-2 bg-[#183D3D] dark:bg-gray-300 absolute transform -translate-x-1/2 -translate-y-1/2 -right-[4.8rem] top-[6.9rem] xsm:top-[7rem] lg:top-[7.4rem] w-[10rem] ">
-                  <div className="menuItem mb-4  ">
-                    {navLink.map((ele, ind) => (
+                <div className="menuList text-center py-2 bg-[#183D3D] dark:bg-gray-300 absolute transform -translate-x-1/2 -translate-y-1/2 -right-[4.8rem] top-[5.7rem] xsm:top-[5.8rem] lg:top-[6.3rem] w-[10rem] ">
+                  <div className="menuItem   ">
+                    {avatarItems.map((ele, ind) => (
                       <div
                         key={ind}
                         className={` text-base ${
