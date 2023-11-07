@@ -5,13 +5,15 @@ import axios from "axios";
 import Loading from "../Components/Loading";
 import { useLoaderData } from "react-router-dom";
 import UseAxios from "../Hooks/UseAxios";
+import UseAuthContext from "../Hooks/UseAuthContext";
 
 const Menu = () => {
+  const { loading } = UseAuthContext();
   const baseAxiosUrl = UseAxios();
 
   const queryClient = useQueryClient();
   const [totalItemCount, setTotalItemCount] = useState(0);
-  const [currentPage, setCurrentPage] = useState(0);
+  const [currentPage, setCurrentPage] = useState(1);
   const [menus, setMenus] = useState([]);
 
   const dataPerPage = 9;
@@ -28,21 +30,35 @@ const Menu = () => {
 
   const pages = [...new Array(numofpages).keys()];
 
-  // console.log(currentPage);
-
   // effect for getting data
   useEffect(() => {
     baseAxiosUrl
       .get(`/menus`, { params: { dataPerPage, currentPage } }) // sending with wuery
-
       .then((response) => {
-        // console.log(response?.data)
         setMenus(response?.data);
       })
       .catch((error) => console.log(error));
   }, [dataPerPage, currentPage]);
 
-  console.log(menus);
+  // function for handle next button in pagination
+  const handleNextCurrent = () => {
+    if (currentPage >= numofpages) {
+      return setCurrentPage(numofpages);
+    }
+    setCurrentPage(currentPage + 1);
+  };
+
+  // function for handle previous button in pagination
+  const handlePrev = () => {
+    if (currentPage <= 1) {
+      return setCurrentPage(1);
+    }
+    setCurrentPage(currentPage - 1);
+  };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div className="menuContainer relative bg-gray-50 dark:bg-[#161718] pt-[4rem] xsm:pt-[4.2rem] sm:pt-[4.5rem] md:pt-[5rem] pb-6 ">
@@ -130,9 +146,14 @@ const Menu = () => {
       {/* pagination container  */}
       <div className="paginationContainer  sansFont relative z-[10] ">
         {/*  */}
+
+        {/* <p className="bg-red-400 text-center">
+          currently active = {currentPage}{" "}
+        </p> */}
+
         <div className="pagination   mt-3 py-4 text-center text-xs xsm:text-sm sm:text-base  ">
           <button
-            onClick={() => setCurrentPage(currentPage - 1)}
+            onClick={() => handlePrev()}
             className=" py-1.5 xsm:py-2.5 px-2.5 xsm:px-3 sm:px-4 border-r border-gray-600 text-white bg-gray-500  hover:bg-gray-700   "
           >
             Prev
@@ -151,7 +172,7 @@ const Menu = () => {
             </button>
           ))}
           <button
-            onClick={() => setCurrentPage(currentPage + 1)}
+            onClick={() => handleNextCurrent()}
             className="py-1.5 xsm:py-2.5 px-2.5 xsm:px-3 sm:px-4 text-white bg-gray-500  hover:bg-gray-700   "
           >
             Next
