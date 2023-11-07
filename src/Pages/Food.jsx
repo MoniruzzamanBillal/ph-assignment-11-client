@@ -1,5 +1,8 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useQuery } from "react-query";
+import { Link, useParams } from "react-router-dom";
+import UseAxios from "../Hooks/UseAxios";
+import Loading from "../Components/Loading";
 
 const features = [
   { name: "Category", description: "Breakfast" },
@@ -14,6 +17,30 @@ const features = [
   { name: "Includes", description: "Wood card tray and 3 refill packs" },
 ];
 const Food = () => {
+  const baseAxios = UseAxios();
+  const [menu, setMenu] = useState(null);
+  const { id } = useParams();
+
+  // console.log(id);
+
+  const { data, isLoading } = useQuery("menu", () => {
+    baseAxios
+      .get(`/menu/${id} `)
+      .then((response) => setMenu(response.data))
+      .catch((error) => console.log(error));
+  });
+
+  // console.log(menu);
+
+  // console.log(menu?.ingredients);
+
+  if (isLoading) {
+    return <Loading />;
+  }
+  if (!menu) {
+    return <Loading />;
+  }
+
   return (
     <div className="foodContainer bg-white  dark:bg-[#161718] pt-[4rem] xsm:pt-[4.2rem] sm:pt-[4.5rem] md:pt-[5rem] pb-6 ">
       <div className="foodWrapper  ">
@@ -30,7 +57,8 @@ const Food = () => {
 
             <img
               className=" relative z-[10] object-cover md:h-auto w-[17rem] md:w-[22rem]  lg:w-[24rem]  md:rounded-none md:rounded-l-lg"
-              src="https://i.ibb.co/J27DVDZ/breakfast1.png"
+              // src="https://i.ibb.co/J27DVDZ/breakfast1.png"
+              src={menu?.foodImage}
               alt=""
             />
 
@@ -48,7 +76,10 @@ const Food = () => {
                 <span className="font-semibold CormorantFont dark:text-gray-50">
                   Item name :
                 </span>{" "}
-                <span className="nameItem text-orange-400 ">ssdvdf</span>
+                <span className="nameItem text-orange-400 ">
+                  {/* {foodName ? foodName : ""} */}
+                  {menu?.foodName}
+                </span>
               </p>
               {/* item name  */}
 
@@ -59,7 +90,9 @@ const Food = () => {
                   {" "}
                   Category :
                 </span>{" "}
-                <span className="nameItem text-orange-400 ">ssdvdf</span>
+                <span className="nameItem text-orange-400 ">
+                  {menu?.foodCategory}
+                </span>
               </p>
               {/* item Category  */}
 
@@ -70,7 +103,9 @@ const Food = () => {
                   {" "}
                   Origin :
                 </span>{" "}
-                <span className="nameItem text-orange-400 ">ssdvdf</span>
+                <span className="nameItem text-orange-400 ">
+                  {menu?.foodOrigin}
+                </span>
               </p>
               {/* item Origin  */}
 
@@ -81,7 +116,9 @@ const Food = () => {
                   {" "}
                   Price :
                 </span>{" "}
-                <span className="nameItem text-orange-400 ">200$</span>
+                <span className="nameItem text-orange-400 ">
+                  {menu?.price}$
+                </span>
               </p>
               {/* item Price  */}
 
@@ -98,15 +135,18 @@ const Food = () => {
 
               {/* item Ingredients  */}
               <p className=" Cheaf mb-2 ">
-                {" "}
                 <span className="font-semibold CormorantFont dark:text-gray-50 ">
                   {" "}
                   Ingredients :
                 </span>{" "}
-                <span className="nameItem text-orange-400 ">
-                  apple , bun , chicken , meat
-                </span>
+                {menu?.ingredients?.map((ingredient, ind) => (
+                  <span className="nameItem text-orange-400 ">
+                    {ingredient}{" "}
+                    {ind === menu?.ingredients.length - 1 ? "" : " , "}
+                  </span>
+                ))}
               </p>
+
               {/* item Ingredients  */}
 
               {/* order button  */}

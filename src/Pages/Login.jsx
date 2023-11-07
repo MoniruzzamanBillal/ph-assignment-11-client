@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import UseAuthContext from "../Hooks/UseAuthContext";
+import Loading from "../Components/Loading";
 
 const Login = () => {
   const { user, loading, emailLogin } = UseAuthContext();
@@ -45,9 +46,9 @@ const Login = () => {
         console.log(user);
         addedSuccessFully();
 
-        // setTimeout(() => {
-        //   navigate(location?.state ? location.state : "/");
-        // }, "1200");
+        setTimeout(() => {
+          navigate(location?.state ? location.state : "/");
+        }, "1200");
       })
       .catch((error) => {
         console.log(error);
@@ -57,6 +58,10 @@ const Login = () => {
     emailInput.reset();
     passwordInput.reset();
   };
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div

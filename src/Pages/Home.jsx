@@ -14,6 +14,7 @@ const Home = () => {
 
   const menus = useLoaderData();
 
+  // sort menu items , based on available products
   menus.sort((a, b) => {
     if (a.quantity < b.quantity) {
       return 1;

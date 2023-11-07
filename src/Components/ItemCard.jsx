@@ -11,6 +11,7 @@ const ItemCard = ({ menu }) => {
     ingredients,
     price,
     quantity,
+    _id,
   } = menu;
 
   return (
@@ -62,7 +63,7 @@ const ItemCard = ({ menu }) => {
 
         {/* detailsa button  */}
 
-        <Link to={`/food`}>
+        <Link to={`/food/${_id}`}>
           <div className="detailsBtn bg-gray-700 hover:bg-gray-800 text-center rounded cursor-pointer active:scale-95 hover:shadow-md CormorantFont ">
             <button className="py-2 text-xl text-white  rounded font-semibold ">
               Details

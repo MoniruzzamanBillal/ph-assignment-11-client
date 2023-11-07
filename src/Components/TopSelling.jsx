@@ -3,7 +3,7 @@ import ItemCard from "./ItemCard";
 import { Link } from "react-router-dom";
 
 const TopSelling = ({ specificMenus }) => {
-  console.log(specificMenus);
+  // console.log(specificMenus);
 
   return (
     <div className="topSelling bg-blue-50 dark:bg-[#161718] py-4 xsm:py-6 sm:py-8 md:py-10 relative ">
