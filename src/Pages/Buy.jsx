@@ -77,7 +77,8 @@ const Buy = () => {
     console.log(sendData);
 
     axiosUrl
-      .post("/addCart", sendData)
+      // .post("/addCart", sendData)
+      .patch("/addCart", sendData)
       .then((response) => {
         console.log(response?.data);
 

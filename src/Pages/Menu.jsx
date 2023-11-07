@@ -33,7 +33,7 @@ const Menu = () => {
   // effect for getting data
   useEffect(() => {
     baseAxiosUrl
-      .get(`/menus`, { params: { dataPerPage, currentPage } }) // sending with wuery
+      .get(`/menus`, { params: { dataPerPage, currentPage } }) // sending with query
       .then((response) => {
         setMenus(response?.data);
       })

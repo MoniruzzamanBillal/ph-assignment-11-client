@@ -1,8 +1,27 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import UseAxios from "../Hooks/UseAxios";
+import UseAuthContext from "../Hooks/UseAuthContext";
+import OrderItem from "../Components/OrderItem";
 
 const Order = () => {
+  const { user, loading } = UseAuthContext();
   const axiosUrl = UseAxios();
+  const [orderMenu, setOrderMenu] = useState([]);
+  const loggedUserMail = user?.email;
+
+  console.log(loggedUserMail);
+
+  useEffect(() => {
+    axiosUrl
+      .get(`/cartData?email=${loggedUserMail}`)
+      .then((response) => {
+        // console.log(response.data);
+        setOrderMenu(response.data);
+      })
+      .catch((error) => console.log(error));
+  }, [loggedUserMail]);
+
+  console.log(orderMenu);
 
   // let sum = 0;
   // const totalPrice = filterData.forEach((element) => {
@@ -38,47 +57,11 @@ const Order = () => {
         {/* left side  */}
 
         {/* added items  */}
-        <div className="  leftSide rounded-lg   md:w-2/3">
-          {/* item container  */}
-          {/* item container  */}
-          <div className=" group ItemContainer justify-between mb-6 rounded-lg bg-gray-50 dark:bg-gray-700 p-6 shadow-md xsm:flex xsm:justify-start">
-            <img
-              //   src={data.productImg}
-              src={`https://i.ibb.co/J27DVDZ/breakfast1.png`}
-              alt="product-image"
-              className="w-full rounded-lg  xsm:w-28 sm:w-40 bg-gray-100 dark:bg-gray-600 group-hover:scale-105 duration-500 "
-            />
-            {/* <div className="xsm:ml-4 xsm:flex xsm:w-full xsm:justify-between  "> */}
-            <div className="ml-4 flex w-full justify-between  ">
-              <div className="mt-5 pl-0 sm:pl-3 sm:mt-0  flex flex-col justify-center   ">
-                <h2 className="text-xl font-bold text-gray-900 dark:text-gray-100 ">
-                  {/* {data.productName} */}
-                  product name
-                </h2>
-                {/* <p className="mt-1 text-xs text-gray-700">36EU - 4US</p> */}
-                <p className="mt-2  text-xs text-gray-700 dark:text-gray-200">
-                  {" "}
-                  <span className=" font-semibold ">price :</span>{" "}
-                  {/* {data.price}  */} producty price
-                </p>
-              </div>
-              <div className="  flex justify-center items-center mt-4  sm:mt-0 ">
-                <div
-                  className="removeButton  "
-                  //   onClick={() => handleDelete(data._id)}
-                >
-                  <button className=" bg-red-500 hover:bg-red-600 dark:bg-red-800 hover:dark:bg-red-900 text-white font-semibold py-2 px-5 rounded active:scale-95 ">
-                    Remove
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* item container  */}
-          {/* item container  */}
-        </div>
 
-        {/* </div> */}
+        <div className="addedItem flex flex-col  md:w-2/3 h-[30rem] overflow-auto ">
+          {orderMenu &&
+            orderMenu.map((menu, ind) => <OrderItem key={ind} menu={menu} />)}
+        </div>
 
         {/* added items  */}
 
