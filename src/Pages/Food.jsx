@@ -35,6 +35,8 @@ const Food = () => {
     return <Loading />;
   }
 
+  console.log(menu._id);
+
   return (
     <div className="foodContainer bg-white  dark:bg-[#161718] pt-[4rem] xsm:pt-[4.2rem] sm:pt-[4.5rem] md:pt-[5rem] pb-6 ">
       <div className="foodWrapper  ">
@@ -146,7 +148,7 @@ const Food = () => {
 
               {/* order button  */}
 
-              <Link to={`/buy`}>
+              <Link to={`/buy/${menu._id}`}>
                 <button className="orderNow mt-5 py-2 px-5 bg-gradient-to-r from-cyan-500 to-blue-500  hover:scale-105 duration-300 active:scale-95 sansFont font-semibold rounded text-gray-100 ">
                   Order Now
                 </button>

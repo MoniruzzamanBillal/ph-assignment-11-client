@@ -16,7 +16,7 @@ const navLink = [
 
   {
     item: "My Cart",
-    link: "/",
+    link: "/order",
   },
 ];
 
