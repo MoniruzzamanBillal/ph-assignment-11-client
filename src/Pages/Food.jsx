@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useQuery } from "react-query";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import UseAxios from "../Hooks/UseAxios";
 import Loading from "../Components/Loading";
+import UseAuthContext from "../Hooks/UseAuthContext";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const features = [
   { name: "Category", description: "Breakfast" },
@@ -17,6 +20,8 @@ const features = [
   { name: "Includes", description: "Wood card tray and 3 refill packs" },
 ];
 const Food = () => {
+  const navigate = useNavigate();
+  const { user } = UseAuthContext();
   const baseAxios = UseAxios();
   const [menu, setMenu] = useState(null);
   const { id } = useParams();
@@ -28,14 +33,41 @@ const Food = () => {
       .catch((error) => console.log(error));
   });
 
+  // toast for error order
+  const errorOrder = () =>
+    toast.warn("You cant buy your own product!!", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
+
+  const handleOrder = (id) => {
+    if (menu?.userEmail === user.email) {
+      errorOrder();
+
+      setTimeout(() => {
+        navigate("/menu");
+      }, 1200);
+
+      return;
+    }
+
+    navigate(`/buy/${id}`);
+  };
+
+  // console.log(menu);
+
   if (isLoading) {
     return <Loading />;
   }
   if (!menu) {
     return <Loading />;
   }
-
-  console.log(menu._id);
 
   return (
     <div className="foodContainer bg-white  dark:bg-[#161718] pt-[4rem] xsm:pt-[4.2rem] sm:pt-[4.5rem] md:pt-[5rem] pb-6 ">
@@ -126,7 +158,10 @@ const Food = () => {
                   {" "}
                   Cheaf :
                 </span>{" "}
-                <span className="nameItem text-orange-400 ">Monir</span>
+                <span className="nameItem text-orange-400 ">
+                  {" "}
+                  {menu?.userName}{" "}
+                </span>
               </p>
               {/* item Cheaf  */}
 
@@ -148,24 +183,22 @@ const Food = () => {
 
               {/* order button  */}
 
-              <Link to={`/buy/${menu._id}`}>
-                <button className="orderNow mt-5 py-2 px-5 bg-gradient-to-r from-cyan-500 to-blue-500  hover:scale-105 duration-300 active:scale-95 sansFont font-semibold rounded text-gray-100 ">
-                  Order Now
-                </button>
-              </Link>
+              <button
+                className="orderNow mt-5 py-2 px-5 bg-gradient-to-r from-cyan-500 to-blue-500  hover:scale-105 duration-300 active:scale-95 sansFont font-semibold rounded text-gray-100 "
+                onClick={() => handleOrder(id)}
+              >
+                Order Now
+              </button>
 
               {/* order button  */}
             </div>
           </div>
 
           {/*  */}
-          {/*  */}
-          {/*  */}
-          {/*  */}
-          {/*  */}
         </div>
         {/* produc details page  */}
       </div>
+      <ToastContainer />
     </div>
   );
 };

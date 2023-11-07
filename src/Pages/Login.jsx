@@ -66,7 +66,7 @@ const Login = () => {
 
   return (
     <div
-      className="w-full h-screen font-sans bg-cover bg-landscape  pt-[5rem] "
+      className="w-full pb-10 font-sans bg-cover bg-landscape  pt-[5rem] "
       style={{
         backgroundImage:
           'url("https://i.ibb.co/rdRrF87/pexels-roman-odintsov-4551832.jpg")',

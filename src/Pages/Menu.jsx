@@ -15,6 +15,12 @@ const Menu = () => {
   const [totalItemCount, setTotalItemCount] = useState(0);
   const [currentPage, setCurrentPage] = useState(1);
   const [menus, setMenus] = useState([]);
+  const [searchInput, setSearchInputValue] = useState("");
+  const [searchMenu, setSearchMenu] = useState([]);
+
+  const allData = useLoaderData();
+
+  // console.log(allData);
 
   const dataPerPage = 9;
 
@@ -55,6 +61,27 @@ const Menu = () => {
     }
     setCurrentPage(currentPage - 1);
   };
+
+  // search function
+  const handleSearch = () => {
+    console.log(searchInput);
+    console.log(searchInput);
+
+    if (!searchInput) {
+      setSearchMenu([]);
+      return;
+    }
+
+    const specificData = allData.filter((data) => {
+      if (data?.foodName.toUpperCase().includes(searchInput)) {
+        return data;
+      }
+    });
+    setSearchMenu(specificData);
+    // console.log(specificData);
+  };
+
+  // console.log(searchMenu);
 
   if (loading) {
     return <Loading />;
@@ -116,6 +143,10 @@ const Menu = () => {
               <input
                 type="search"
                 id="search"
+                value={searchInput}
+                onChange={(e) =>
+                  setSearchInputValue(e.target.value.toUpperCase())
+                }
                 className="block w-full p-2.5 sm:p-4 md:pl-10 text-sm sansFont text-gray-900  rounded-lg bg-gray-50 outline-none  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white "
                 placeholder="Search"
                 required
@@ -123,6 +154,7 @@ const Menu = () => {
               <button
                 type="submit"
                 className="text-white absolute right-2.5 bottom-1 sm:bottom-2.5 bg-blue-700 hover:bg-blue-800 focus:outline-none  font-medium rounded text-sm px-4 py-1.5 sm:py-2 dark:bg-blue-600 dark:hover:bg-blue-700 "
+                onClick={() => handleSearch()}
               >
                 Search
               </button>
@@ -133,54 +165,60 @@ const Menu = () => {
       </div>
 
       {/* item card section  */}
+      {searchMenu?.length <= 0 ? (
+        <div className="">
+          {" "}
+          {/* item card */}
+          <div className="itemCard relative z-[10]  mt-1 xsm:mt-2 sm:mt-4 w-[96%] sm:w-[90%] m-auto grid grid-cols-1 xsm:grid-cols-2 xmd:grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-8 ">
+            {menus &&
+              menus.map((menu, ind) => <ItemCard key={ind} menu={menu} />)}
+          </div>
+          {/* item card */}
+          {/* item card section  */}
+          {/* pagination container  */}
+          <div className="paginationContainer  sansFont relative z-[10] ">
+            {/*  */}
 
-      {/* item card */}
-      <div className="itemCard relative z-[10]  mt-1 xsm:mt-2 sm:mt-4 w-[96%] sm:w-[90%] m-auto grid grid-cols-1 xsm:grid-cols-2 xmd:grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-8 ">
-        {menus && menus.map((menu, ind) => <ItemCard key={ind} menu={menu} />)}
-      </div>
-
-      {/* item card */}
-
-      {/* item card section  */}
-
-      {/* pagination container  */}
-      <div className="paginationContainer  sansFont relative z-[10] ">
-        {/*  */}
-
-        {/* <p className="bg-red-400 text-center">
-          currently active = {currentPage}{" "}
-        </p> */}
-
-        <div className="pagination   mt-3 py-4 text-center text-xs xsm:text-sm sm:text-base  ">
-          <button
-            onClick={() => handlePrev()}
-            className=" py-1.5 xsm:py-2.5 px-2.5 xsm:px-3 sm:px-4 border-r border-gray-600 text-white bg-gray-500  hover:bg-gray-700   "
-          >
-            Prev
-          </button>
-          {pages.map((page, ind) => (
-            <button
-              onClick={() => setCurrentPage(page + 1)}
-              className={` py-1.5 xsm:py-2.5 px-2.5 xsm:px-3 sm:px-4 text-white   ${
-                currentPage - 1 === page
-                  ? "bg-[#e4c590] hover:bg-amber-300 "
-                  : "bg-gray-500  hover:bg-gray-700"
-              } border-r border-gray-600 `}
-            >
-              {" "}
-              {page + 1}{" "}
-            </button>
-          ))}
-          <button
-            onClick={() => handleNextCurrent()}
-            className="py-1.5 xsm:py-2.5 px-2.5 xsm:px-3 sm:px-4 text-white bg-gray-500  hover:bg-gray-700   "
-          >
-            Next
-          </button>
+            <div className="pagination   mt-3 py-4 text-center text-xs xsm:text-sm sm:text-base  ">
+              <button
+                onClick={() => handlePrev()}
+                className=" py-1.5 xsm:py-2.5 px-2.5 xsm:px-3 sm:px-4 border-r border-gray-600 text-white bg-gray-500  hover:bg-gray-700   "
+              >
+                Prev
+              </button>
+              {pages.map((page, ind) => (
+                <button
+                  onClick={() => setCurrentPage(page + 1)}
+                  className={` py-1.5 xsm:py-2.5 px-2.5 xsm:px-3 sm:px-4 text-white   ${
+                    currentPage - 1 === page
+                      ? "bg-[#e4c590] hover:bg-amber-300 "
+                      : "bg-gray-500  hover:bg-gray-700"
+                  } border-r border-gray-600 `}
+                >
+                  {" "}
+                  {page + 1}{" "}
+                </button>
+              ))}
+              <button
+                onClick={() => handleNextCurrent()}
+                className="py-1.5 xsm:py-2.5 px-2.5 xsm:px-3 sm:px-4 text-white bg-gray-500  hover:bg-gray-700   "
+              >
+                Next
+              </button>
+            </div>
+            {/*  */}
+          </div>
+          {/* pagination container  */}{" "}
         </div>
-        {/*  */}
-      </div>
-      {/* pagination container  */}
+      ) : (
+        <div className="itemCard relative z-[10]  mt-1 xsm:mt-2 sm:mt-4 w-[96%] sm:w-[90%] m-auto grid grid-cols-1 xsm:grid-cols-2 xmd:grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-8 ">
+          {" "}
+          {searchMenu &&
+            searchMenu.map((menu, ind) => (
+              <ItemCard key={ind} menu={menu} />
+            ))}{" "}
+        </div>
+      )}
     </div>
   );
 };

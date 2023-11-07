@@ -4,8 +4,10 @@ import "react-toastify/dist/ReactToastify.css";
 import UseAuthContext from "../Hooks/UseAuthContext";
 import Loading from "../Components/Loading";
 import UseAxios from "../Hooks/UseAxios";
+import { useNavigate } from "react-router-dom";
 
 const AddFood = () => {
+  const navigate = useNavigate();
   const axiosUrl = UseAxios();
   const { user, loading } = UseAuthContext();
 
@@ -27,7 +29,7 @@ const AddFood = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("submit click");
+    // console.log("submit click");
     const form = e.target;
 
     const foodName = form.food_name.value;
@@ -84,6 +86,10 @@ const AddFood = () => {
         console.log(response?.data);
         if (response?.data?.insertedId) {
           addedSuccessFully();
+
+          setTimeout(() => {
+            navigate("/myFood");
+          }, 1200);
         }
       })
       .catch((error) => console.log(error));

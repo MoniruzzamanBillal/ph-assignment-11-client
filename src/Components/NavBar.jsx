@@ -116,7 +116,7 @@ const NavBar = () => {
               key={ind}
               to={ele.link}
               className={`  ${navLink.length - 1 === ind ? "mr-0" : "mr-5"}   ${
-                scrollPosition >= 30 ? " " : " text-white "
+                scrollPosition >= 30 ? " " : " text-red-600 "
               }     relative group  text-base lg:text-lg   text-gray-700 dark:text-[#E4F1FF] hover:text-blue-500 hover:drop-shadow-md  `}
             >
               {ele.item}

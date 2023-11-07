@@ -4,12 +4,13 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import "react-datepicker/dist/react-datepicker.css";
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import UseAxios from "../Hooks/UseAxios";
 import UseAuthContext from "../Hooks/UseAuthContext";
 import Loading from "../Components/Loading";
 
 const Buy = () => {
+  const navigate = useNavigate();
   const { user, loading } = UseAuthContext();
   const axiosUrl = UseAxios();
   const { id } = useParams();
@@ -57,7 +58,7 @@ const Buy = () => {
   };
   // function for handling quantity increase
   const handleIncrease = () => {
-    if (quantity >= menuData.quantity) {
+    if (quantity >= menuData?.quantity) {
       return errorOrder();
     }
 
@@ -74,7 +75,7 @@ const Buy = () => {
       byuer: user?.email,
     };
 
-    console.log(sendData);
+    // console.log(sendData);
 
     axiosUrl
       // .post("/addCart", sendData)
@@ -82,8 +83,12 @@ const Buy = () => {
       .then((response) => {
         console.log(response?.data);
 
-        if (response?.data?.insertedId) {
+        if (response?.data?.acknowledged) {
           itemAddedSuccessfully();
+
+          setTimeout(() => {
+            navigate("/menu");
+          }, 1200);
         }
       })
       .catch((error) => console.log(error));
@@ -95,7 +100,7 @@ const Buy = () => {
   // console.log(date);
   // console.log(year);
 
-  console.log(user);
+  // console.log(user);
 
   if (loading) {
     return <Loading />;

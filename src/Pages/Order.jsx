@@ -2,8 +2,10 @@ import React, { useEffect, useState } from "react";
 import UseAxios from "../Hooks/UseAxios";
 import UseAuthContext from "../Hooks/UseAuthContext";
 import OrderItem from "../Components/OrderItem";
+import { useNavigate } from "react-router-dom";
 
 const Order = () => {
+  const navigate = useNavigate();
   const { user, loading } = UseAuthContext();
   const axiosUrl = UseAxios();
   const [orderMenu, setOrderMenu] = useState([]);
@@ -21,9 +23,9 @@ const Order = () => {
       .catch((error) => console.log(error));
   }, [loggedUserMail]);
 
-  console.log(orderMenu);
+  // console.log(orderMenu);
 
-  //! delete function
+  //! delete function specific data
   const handleDelete = (id) => {
     console.log("click");
     console.log(id);
@@ -48,9 +50,31 @@ const Order = () => {
   });
 
   let shiiping = 4.99;
-  console.log(sum);
+  // console.log(sum);
 
   let total = (sum + shiiping).toFixed(2);
+
+  // checkout function
+  const handleCheckout = () => {
+    console.log("click");
+
+    axiosUrl
+      .put(`/updateAll`, orderMenu)
+      .then((response) => {
+        console.log(response?.data);
+        if (response?.data?.acknowledged) {
+          axiosUrl
+            .delete("/cartDelete")
+            .then((response) => {
+              console.log(response.data?.deletedCount);
+
+              navigate("/");
+            })
+            .catch((error) => console.log(error));
+        }
+      })
+      .catch((error) => console.log(error));
+  };
 
   return (
     <div className=" bg-gray-200  dark:bg-[#161718] pt-20 pb-12 ">
@@ -156,7 +180,10 @@ const Order = () => {
               </p>
             </div>
           </div>
-          <button className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">
+          <button
+            className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600"
+            // onClick={() => handleCheckout()}
+          >
             Check out
           </button>
         </div>

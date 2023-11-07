@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import UseAuthContext from "../Hooks/UseAuthContext";
 import Loading from "../Components/Loading";
 import { motion } from "framer-motion";
@@ -8,17 +8,20 @@ import Testimonial from "../Components/Testimonial";
 import WhyChoose from "../Components/WhyChoose";
 import TopSelling from "../Components/TopSelling";
 import { useLoaderData } from "react-router-dom";
+import UseAxios from "../Hooks/UseAxios";
 
 const Home = () => {
   const { user, loading } = UseAuthContext();
 
+  const axiosUrl = UseAxios();
+  let total;
+
   const menus = useLoaderData();
 
-  // sort menu items , based on available products
   menus.sort((a, b) => {
-    if (a.quantity < b.quantity) {
+    if (a.orderQuantity < b.orderQuantity) {
       return 1;
-    } else if (a.quantity > b.quantity) {
+    } else if (a.orderQuantity > b.orderQuantity) {
       return -1;
     } else {
       return 0;
@@ -26,8 +29,6 @@ const Home = () => {
   });
 
   const specificMenus = menus.slice(0, 6);
-
-  console.log(specificMenus);
 
   if (loading) {
     return <Loading />;

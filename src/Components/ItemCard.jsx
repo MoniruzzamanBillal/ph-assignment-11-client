@@ -11,7 +11,7 @@ const ItemCard = ({ menu }) => {
       </div>
       <div className=" cardBody p-3 sm:p-2 md:p-3 bg-gray-100 dark:bg-gray-500 flex flex-col  ">
         {/* \ */}
-        {/* \ */}
+
         {/* card row 1  */}
         <div className="cardRow1 mb-2.5  flex justify-between items-center  font-semibold sansFont ">
           {/* row1 column1  */}

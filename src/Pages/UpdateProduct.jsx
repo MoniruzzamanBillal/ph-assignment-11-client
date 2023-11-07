@@ -100,7 +100,7 @@ const UpdateProduct = () => {
     axiosUrl
       .patch(`/update/${id}`, addedFoodObj)
       .then((response) => {
-        console.log(response?.data);
+        // console.log(response?.data);
         if (response?.data?.acknowledged) {
           addedSuccessFully();
           setTimeout(() => {

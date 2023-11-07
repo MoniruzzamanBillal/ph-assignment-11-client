@@ -17,7 +17,7 @@ const Hero = () => {
         <Carousel
           leftControl={<AiOutlineLeft />}
           rightControl={<AiOutlineRight />}
-          slideInterval={3000}
+          slideInterval={30000}
           onSlideChange={(change) => setActiveSlide(change)}
         >
           {/*  */}
@@ -37,7 +37,7 @@ const Hero = () => {
                   initial={{ y: "100", opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 1 }}
-                  className="  goldenText text-2xl mb-4 text-center "
+                  className="  goldenText text-base xsm:text-lg md:text-xl lg:text-2xl mb-2 md:mb-3 xmd:mb-4 text-center "
                 >
                   Tradational & Hygine
                 </motion.p>
@@ -49,7 +49,7 @@ const Hero = () => {
                   initial={{ y: "100", opacity: 0 }}
                   animate={{ y: 0, opacity: 0.7 }}
                   transition={{ duration: 1, delay: 0.5 }}
-                  className="seperatorImg  w-[10rem] flex justify-center items-center mb-4 "
+                  className="seperatorImg w-[7rem] xsm:w-[8rem] md:w-[9rem] lg:w-[10rem] flex justify-center items-center mb-2 md:mb-3 xmd:mb-4 "
                 >
                   <img
                     src="https://i.ibb.co/pr3Ryq7/separator.png"
@@ -65,7 +65,7 @@ const Hero = () => {
                   initial={{ y: "100", opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 1, delay: 0.7 }}
-                  className=" CormorantFont text-7xl text-center font-semibold text-gray-50 mb-7 "
+                  className=" CormorantFont text-3xl xsm:text-4xl md:text-5xl xmd:text-6xl lg:text-7xl text-center font-semibold text-gray-50 mb-5 md:mb-6 xmd:mb-7 "
                 >
                   Tradational & Hygine <br />
                   For the love of
@@ -77,7 +77,7 @@ const Hero = () => {
                   initial={{ y: "100", opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 1, delay: 0.9 }}
-                  className="  mb-8 text-2xl text-gray-50 "
+                  className="  mb-4 md:mb-6 xmd:mb-8 text-sm xsm:text-base md:text-lg xmd:text-xl lg:text-2xl text-gray-50 "
                 >
                   Come with family & feel the joy of mouthwatering food
                 </motion.p>
@@ -124,7 +124,7 @@ const Hero = () => {
                   initial={{ y: "100", opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 1 }}
-                  className="  goldenText text-2xl mb-4 text-center "
+                  className="  goldenText text-base xsm:text-lg md:text-xl lg:text-2xl mb-2 md:mb-3 xmd:mb-4 text-center "
                 >
                   delightful experience
                 </motion.p>
@@ -136,7 +136,7 @@ const Hero = () => {
                   initial={{ y: "100", opacity: 0 }}
                   animate={{ y: 0, opacity: 0.7 }}
                   transition={{ duration: 1, delay: 0.5 }}
-                  className="seperatorImg  w-[10rem] flex justify-center items-center mb-4 "
+                  className="seperatorImg w-[7rem] xsm:w-[8rem] md:w-[9rem] lg:w-[10rem] flex justify-center items-center mb-2 md:mb-3 xmd:mb-4 "
                 >
                   <img
                     src="https://i.ibb.co/pr3Ryq7/separator.png"
@@ -152,7 +152,7 @@ const Hero = () => {
                   initial={{ y: "100", opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 1, delay: 0.7 }}
-                  className="CormorantFont text-7xl text-center font-semibold text-gray-50 mb-7 "
+                  className=" CormorantFont text-3xl xsm:text-4xl md:text-5xl xmd:text-6xl lg:text-7xl text-center font-semibold text-gray-50 mb-5 md:mb-6 xmd:mb-7 "
                 >
                   Flavors Inspired by <br />
                   the Seasons
@@ -164,7 +164,7 @@ const Hero = () => {
                   initial={{ y: "100", opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 1, delay: 0.9 }}
-                  className="  mb-8 text-2xl text-gray-50 "
+                  className="  mb-4 md:mb-6 xmd:mb-8 text-sm xsm:text-base md:text-lg xmd:text-xl lg:text-2xl text-gray-50 "
                 >
                   Come with family & feel the joy of mouthwatering food
                 </motion.p>
@@ -211,7 +211,7 @@ const Hero = () => {
                   initial={{ y: "100", opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 1 }}
-                  className="  goldenText text-2xl mb-4 text-center "
+                  className="  goldenText text-base xsm:text-lg md:text-xl lg:text-2xl mb-2 md:mb-3 xmd:mb-4 text-center "
                 >
                   amazing & delicious
                 </motion.p>
@@ -223,7 +223,7 @@ const Hero = () => {
                   initial={{ y: "100", opacity: 0 }}
                   animate={{ y: 0, opacity: 0.7 }}
                   transition={{ duration: 1, delay: 0.5 }}
-                  className="seperatorImg  w-[10rem] flex justify-center items-center mb-4 "
+                  className="seperatorImg w-[7rem] xsm:w-[8rem] md:w-[9rem] lg:w-[10rem] flex justify-center items-center mb-2 md:mb-3 xmd:mb-4 "
                 >
                   <img
                     src="https://i.ibb.co/pr3Ryq7/separator.png"
@@ -239,7 +239,7 @@ const Hero = () => {
                   initial={{ y: "100", opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 1, delay: 0.7 }}
-                  className="CormorantFont text-7xl text-center font-semibold text-gray-50 mb-7 "
+                  className=" CormorantFont text-3xl xsm:text-4xl md:text-5xl xmd:text-6xl lg:text-7xl text-center font-semibold text-gray-50 mb-5 md:mb-6 xmd:mb-7 "
                 >
                   Where every flavor <br />
                   tells a story
@@ -251,7 +251,7 @@ const Hero = () => {
                   initial={{ y: "100", opacity: 0 }}
                   animate={{ y: 0, opacity: 1 }}
                   transition={{ duration: 1, delay: 0.9 }}
-                  className="  mb-8 text-2xl text-gray-50 "
+                  className="  mb-4 md:mb-6 xmd:mb-8 text-sm xsm:text-base md:text-lg xmd:text-xl lg:text-2xl text-gray-50 "
                 >
                   Come with family & feel the joy of mouthwatering food
                 </motion.p>
