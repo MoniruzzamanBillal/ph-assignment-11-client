@@ -1,7 +1,10 @@
 import React from "react";
 import ItemCard from "./ItemCard";
+import { Link } from "react-router-dom";
 
-const TopSelling = () => {
+const TopSelling = ({ specificMenus }) => {
+  console.log(specificMenus);
+
   return (
     <div className="topSelling bg-blue-50 dark:bg-[#161718] py-4 xsm:py-6 sm:py-8 md:py-10 relative ">
       {/* right top icon  */}
@@ -44,20 +47,19 @@ const TopSelling = () => {
 
         {/* card items  */}
         <div className="cardItems  grid grid-cols-1s sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-7 m-auto ">
-          <ItemCard />
-          <ItemCard />
-          <ItemCard />
-          <ItemCard />
-          <ItemCard />
-          <ItemCard />
+          {specificMenus.map((menu, ind) => (
+            <ItemCard key={ind} menu={menu} />
+          ))}
         </div>
         {/* card items  */}
 
         {/* see all button  */}
         <div className="seeAll  mt-10 m-auto text-center ">
-          <button className="py-2 px-6 font-semibold bg-violet-500 hover:bg-violet-600 dark:bg-violet-900 dark:hover:bg-violet-950 rounded text-gray-100 active:scale-95 ">
-            See all
-          </button>
+          <Link to={`/menu`}>
+            <button className="py-2 px-6 font-semibold bg-violet-500 hover:bg-violet-600 dark:bg-violet-900 dark:hover:bg-violet-950 rounded text-gray-100 active:scale-95 ">
+              See all
+            </button>
+          </Link>
         </div>
         {/* see all button  */}
 

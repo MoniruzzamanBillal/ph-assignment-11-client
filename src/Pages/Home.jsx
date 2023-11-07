@@ -7,9 +7,26 @@ import WhatWeOffer from "../Components/WhatWeOffer";
 import Testimonial from "../Components/Testimonial";
 import WhyChoose from "../Components/WhyChoose";
 import TopSelling from "../Components/TopSelling";
+import { useLoaderData } from "react-router-dom";
 
 const Home = () => {
   const { user, loading } = UseAuthContext();
+
+  const menus = useLoaderData();
+
+  menus.sort((a, b) => {
+    if (a.quantity < b.quantity) {
+      return 1;
+    } else if (a.quantity > b.quantity) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
+
+  const specificMenus = menus.slice(0, 6);
+
+  // console.log(specificMenus);
 
   if (loading) {
     return <Loading />;
@@ -34,7 +51,7 @@ const Home = () => {
 
         {/* top selling item  */}
         <div className="topSelling">
-          <TopSelling />
+          <TopSelling specificMenus={specificMenus} />
         </div>
         {/* top selling item  */}
 
