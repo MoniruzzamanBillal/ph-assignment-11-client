@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import UseAuthContext from "../Hooks/UseAuthContext";
+import Loading from "../Components/Loading";
+import UseAxios from "../Hooks/UseAxios";
 
 const AddFood = () => {
+  const axiosUrl = UseAxios();
+  const { user, loading } = UseAuthContext();
+
+  const userName = user?.displayName;
+  const userEmail = user?.email;
+
   // toast for successfull insert
   const addedSuccessFully = () =>
     toast.success("New item added successfully!", {
@@ -25,22 +34,67 @@ const AddFood = () => {
     const foodImage = form.food_image.value;
     const foodOrigin = form.food_oridin.value;
     const foodCategory = form.category.value;
-    const foodPrice = form.price.value;
-    const foodQuantity = form.quantity.value;
+    const price = form.price.value;
+    const quantity = form.quantity.value;
     const foodIngredients = form.ingredients.value;
+
+    const ingredients = foodIngredients.split(" ");
+    // console.log(ingredients);
+
+    // check for empty input field
+    if (
+      !foodName ||
+      !foodImage ||
+      !foodOrigin ||
+      !foodCategory ||
+      !price ||
+      !quantity ||
+      !foodIngredients
+    ) {
+      toast.error("All fields are required.", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: "colored",
+      });
+      return;
+    }
 
     const addedFoodObj = {
       foodName,
       foodImage,
       foodOrigin,
       foodCategory,
-      foodPrice,
-      foodQuantity,
-      foodIngredients,
+      price,
+      quantity,
+      ingredients,
+      userName,
+      userEmail,
     };
 
     console.log(addedFoodObj);
+
+    axiosUrl
+      .post("/addNew", addedFoodObj)
+      .then((response) => {
+        console.log(response?.data);
+        if (response?.data?.insertedId) {
+          addedSuccessFully();
+        }
+      })
+      .catch((error) => console.log(error));
   };
+
+  // console.log(userName);
+  // console.log(userEmail);
+
+  if (loading) {
+    return <Loading />;
+  }
 
   return (
     <div
@@ -163,7 +217,7 @@ const AddFood = () => {
                   type="number"
                   id="price"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm remove-arrow rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
-                  placeholder="$2999"
+                  placeholder="Enter price"
                   required=""
                 />
               </div>
@@ -183,7 +237,7 @@ const AddFood = () => {
                   type="number"
                   id="quantity"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm remove-arrow rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
-                  placeholder="16"
+                  placeholder="Enter quantity(max-20)"
                   required=""
                 />
               </div>
@@ -202,7 +256,7 @@ const AddFood = () => {
                   name="ingredients"
                   id="ingredients"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
-                  placeholder="added by"
+                  placeholder="Enter ingredients without space"
                   required=""
                 />
               </div>
@@ -219,20 +273,22 @@ const AddFood = () => {
                 </label>
                 <input
                   type="text"
-                  name="addby"
-                  id="addby"
+                  name="userNameInput"
+                  id="userNameInput"
                   className="bg-gray-50 border  border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 mb-3 "
                   placeholder="User name"
-                  value={`User Name`}
+                  value={userName}
+                  readOnly
                   required=""
                 />
                 <input
                   type="text"
-                  name="addby"
-                  id="addby"
+                  name="userEmailInput"
+                  id="userEmailInput"
                   className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
                   placeholder="User email"
-                  value={`User email`}
+                  value={userEmail}
+                  readOnly
                   required=""
                 />
               </div>

@@ -27,7 +27,7 @@ const Home = () => {
 
   const specificMenus = menus.slice(0, 6);
 
-  // console.log(specificMenus);
+  console.log(specificMenus);
 
   if (loading) {
     return <Loading />;
