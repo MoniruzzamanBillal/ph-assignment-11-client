@@ -12,7 +12,7 @@ const WhyChoose = () => {
 
           {/* sepoerator image  */}
 
-          <div className="seperatorImg  m-auto w-[8rem] flex justify-center items-center mb-6 ">
+          <div className="seperatorImg  m-auto w-[7rem] lg:w-[8rem] flex justify-center items-center mb-6 ">
             <img
               src="https://i.ibb.co/pr3Ryq7/separator.png"
               className="  w-full h-full "
@@ -21,7 +21,7 @@ const WhyChoose = () => {
           </div>
           {/* sepoerator image  */}
 
-          <p className="CormorantFont text-5xl m-auto mb-8 font-semibold text-center dark:text-gray-100   ">
+          <p className="CormorantFont text-2xl xsm:text-3xl sm:text-4xl md:text-5xl m-auto mb-8 font-semibold text-center dark:text-gray-100   ">
             Our Strength
           </p>
         </div>
@@ -32,10 +32,7 @@ const WhyChoose = () => {
           <div className="flex group flex-col items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-600 p-4 lg:p-8  hover:shadow-md hover:scale-105 duration-300 cursor-pointer ">
             {/* top imgge  */}
             <div className="topImg mb-3 group-hover:rotate-[360deg] duration-200 ">
-              <img
-                src="../../public/images/feature/features-icon-1.png"
-                alt=""
-              />
+              <img src="https://i.ibb.co/gZVGZsF/features-icon-1.png" alt="" />
             </div>
             {/* top imgge  */}
 
@@ -43,7 +40,7 @@ const WhyChoose = () => {
               Hygienic Food
             </div>
             <div className="text-sm font-semibold text-center dark:text-gray-50 ">
-              Lorem Ipsum is simply dummy printing and typesetting.
+              Enjoy our hygienic food for a clean and delicious meal.
             </div>
           </div>
           {/* <!-- stat - end --> */}
@@ -52,10 +49,7 @@ const WhyChoose = () => {
           <div className="flex group flex-col items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-600 p-4 lg:p-8  hover:shadow-md hover:scale-105 duration-300 cursor-pointer ">
             {/* top imgge  */}
             <div className="topImg mb-3 group-hover:rotate-[360deg] duration-200 ">
-              <img
-                src="../../public/images/feature/features-icon-2.png"
-                alt=""
-              />
+              <img src="https://i.ibb.co/HKhKQ0v/features-icon-2.png" alt="" />
             </div>
             {/* top imgge  */}
 
@@ -63,7 +57,7 @@ const WhyChoose = () => {
               Fresh Environment
             </div>
             <div className="text-sm font-semibold text-center dark:text-gray-50 ">
-              Lorem Ipsum is simply dummy printing and typesetting.
+              Enjoy a fresh environment that enhances your dining experience.
             </div>
           </div>
 
@@ -71,10 +65,7 @@ const WhyChoose = () => {
           <div className="flex group flex-col items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-600 p-4 lg:p-8  hover:shadow-md hover:scale-105 duration-300 cursor-pointer ">
             {/* top imgge  */}
             <div className="topImg mb-3 group-hover:rotate-[360deg] duration-200 ">
-              <img
-                src="../../public/images/feature/features-icon-3.png"
-                alt=""
-              />
+              <img src="https://i.ibb.co/3sQGWfK/features-icon-3.png" alt="" />
             </div>
             {/* top imgge  */}
 
@@ -82,7 +73,7 @@ const WhyChoose = () => {
               Skilled Chefs
             </div>
             <div className="text-sm font-semibold text-center dark:text-gray-50 ">
-              Lorem Ipsum is simply dummy printing and typesetting.
+              Experience exquisite cuisine crafted by our skilled chefs.
             </div>
           </div>
           {/* <!-- stat - end --> */}
@@ -91,10 +82,7 @@ const WhyChoose = () => {
           <div className="flex group flex-col items-center justify-center rounded-lg bg-gray-100 dark:bg-gray-600 p-4 lg:p-8  hover:shadow-md hover:scale-105 duration-300 cursor-pointer ">
             {/* top imgge  */}
             <div className="topImg mb-3 group-hover:rotate-[360deg] duration-200">
-              <img
-                src="../../public/images/feature/features-icon-4.png"
-                alt=""
-              />
+              <img src="https://i.ibb.co/pfw8YqF/features-icon-4.png" alt="" />
             </div>
             {/* top imgge  */}
 
@@ -102,7 +90,7 @@ const WhyChoose = () => {
               Event & Party
             </div>
             <div className="text-sm font-semibold text-center dark:text-gray-50 ">
-              Lorem Ipsum is simply dummy printing and typesetting.
+              Perfect for all your special occasions.
             </div>
           </div>
           {/* <!-- stat - end --> */}

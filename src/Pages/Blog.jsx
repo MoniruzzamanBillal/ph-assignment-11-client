@@ -1,8 +1,14 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 
 const Blog = () => {
   return (
     <div className="aboutUsContainer bg-[#EAFDFC] pt-[3.2rem] xsm:pt-[3.6rem] ">
+      <Helmet>
+        <title>Blog</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
+
       <div className="aboutUsWrapper  py-4 xsm:py-5 sm:py-6 md:py-8 px-3 w-[99%] xsm:w-[96%] lg:w-[90%] m-auto  ">
         <h1 className="  font-bold text-3xl xsm:text-4xl mb-6 xsm:mb-7 sm:mb-9 dancingFont  ">
           Resto

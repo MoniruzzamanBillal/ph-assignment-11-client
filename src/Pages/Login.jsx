@@ -7,6 +7,7 @@ import UseAuthContext from "../Hooks/UseAuthContext";
 import Loading from "../Components/Loading";
 import axios from "axios";
 import UseAxios from "../Hooks/UseAxios";
+import { Helmet } from "react-helmet";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { auth } from "../Utilities/Firebase.config";
 const Login = () => {
@@ -47,6 +48,10 @@ const Login = () => {
 
   // email login
   const handleLogin = () => {
+    if (!emailInput.value || !passwordInput.value) {
+      return;
+    }
+
     emailLogin(emailInput.value, passwordInput.value)
       .then((user) => {
         // console.log(user?.user?.email);
@@ -100,6 +105,10 @@ const Login = () => {
           'url("https://i.ibb.co/rdRrF87/pexels-roman-odintsov-4551832.jpg")',
       }}
     >
+      <Helmet>
+        <title>Login</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       <div className="absolute w-full h-full opacity-20 top-0 left-0 bg-gray-500  "></div>
 
       <div className="container flex items-center justify-center flex-1 h-full mx-auto">

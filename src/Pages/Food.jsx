@@ -6,6 +6,7 @@ import Loading from "../Components/Loading";
 import UseAuthContext from "../Hooks/UseAuthContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Helmet } from "react-helmet";
 
 const features = [
   { name: "Category", description: "Breakfast" },
@@ -71,6 +72,10 @@ const Food = () => {
 
   return (
     <div className="foodContainer bg-white  dark:bg-[#161718] pt-[4rem] xsm:pt-[4.2rem] sm:pt-[4.5rem] md:pt-[5rem] pb-6 ">
+      <Helmet>
+        <title>Food</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       <div className="foodWrapper  ">
         {/* produc details page  */}
         <div className=" relative flex justify-center items-center ">

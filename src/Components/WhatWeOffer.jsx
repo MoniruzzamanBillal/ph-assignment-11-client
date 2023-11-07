@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import React from "react";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 
 const WhatWeOffer = () => {
   const [ref, inView] = useInView({
@@ -44,7 +45,7 @@ const WhatWeOffer = () => {
       {/*  */}
       {/*  */}
 
-      <div className="Wrapper bg-blue-300S w-[90%] m-auto z-[10]  relative ">
+      <div className="Wrapper  w-[99%] xsm:w-[98%] sm:w-[96%] md:w-[94%] xmd:w-[90%] m-auto z-[10]  relative ">
         {/* offer top section  */}
         <div className="offerTop bg-amber-5004  flex flex-col justify-center items-center">
           {/* intro para  */}
@@ -52,7 +53,7 @@ const WhatWeOffer = () => {
             initial={{ y: "100", opacity: 0 }}
             animate={inView ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.8 }}
-            className="introPara  text-lg font-semibold mb-3 sansFont text-orange-700 dark:goldenText "
+            className="introPara text-base sm:text-lg font-semibold mb-3 sansFont text-orange-700 dark:goldenText "
           >
             <p>FLAVORS FOR ROYALTY</p>
           </motion.div>
@@ -78,7 +79,7 @@ const WhatWeOffer = () => {
             initial={{ y: "100", opacity: 0 }}
             animate={inView ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.6 }}
-            className="heading mb-6 text-6xl font-bold CormorantFont CormorantFont  text-gray-800 dark:text-white "
+            className="heading mb-6 text-2xl xsm:text-3xl sm:text-4xl md:text-5xl  lg:text-6xl font-bold CormorantFont CormorantFont  text-gray-800 dark:text-white  "
           >
             <h1>We Offer Top Notch</h1>
           </motion.div>
@@ -89,7 +90,7 @@ const WhatWeOffer = () => {
             initial={{ y: "100", opacity: 0 }}
             animate={inView ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="smallDescription text-lg w-[34%] m-auto text-center mb-8   text-gray-800 dark:text-gray-50 "
+            className="smallDescription text-sm sm:text-base xmd:text-lg w-[55%] md:w-[48%] xmd:w-[40%] lg:w-[34%] m-auto text-center mb-8   text-gray-800 dark:text-gray-50  "
           >
             <p>
               Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -129,11 +130,13 @@ const WhatWeOffer = () => {
                   <h1 className=" sansFont text-2xl mb-2 font-semibold  text-gray-800 dark:text-white ">
                     Breakfast
                   </h1>
-                  <p className=" cursor-pointer inline-block sansFont  text-orange-800 dark:text-[#f5c570] font-semibold text-lg relative group ">
-                    View menu
-                    <span className="absolute -bottom-[.15rem] left-0 w-0 h-[.15rem] bg-orange-800 dark:bg-[#f5c570] group-hover:w-full group-hover:transition-all"></span>
-                    <span className="absolute -bottom-[.4rem] left-0 w-0 h-[.15rem] bg-orange-800 dark:bg-[#f5c570] group-hover:w-full group-hover:transition-all"></span>
-                  </p>
+                  <Link to={`menu`}>
+                    <p className=" cursor-pointer inline-block sansFont  text-orange-800 dark:text-[#f5c570] font-semibold text-lg relative group ">
+                      View menu
+                      <span className="absolute -bottom-[.15rem] left-0 w-0 h-[.15rem] bg-orange-800 dark:bg-[#f5c570] group-hover:w-full group-hover:transition-all"></span>
+                      <span className="absolute -bottom-[.4rem] left-0 w-0 h-[.15rem] bg-orange-800 dark:bg-[#f5c570] group-hover:w-full group-hover:transition-all"></span>
+                    </p>
+                  </Link>
                 </div>
               </div>
 
@@ -175,13 +178,15 @@ const WhatWeOffer = () => {
 
                 <div className="breakfastBottom  mt-8 text-center  ">
                   <h1 className=" sansFont text-2xl mb-2 font-semibold  text-gray-800 dark:text-white  ">
-                    Breakfast
+                    Appetizer
                   </h1>
-                  <p className=" cursor-pointer inline-block sansFont  text-orange-800 dark:text-[#f5c570] font-semibold text-lg relative group ">
-                    View menu
-                    <span className="absolute -bottom-[.15rem] left-0 w-0 h-[.15rem] bg-orange-800 dark:bg-[#f5c570] group-hover:w-full group-hover:transition-all"></span>
-                    <span className="absolute -bottom-[.4rem] left-0 w-0 h-[.15rem] bg-orange-800 dark:bg-[#f5c570] group-hover:w-full group-hover:transition-all"></span>
-                  </p>
+                  <Link to={`menu`}>
+                    <p className=" cursor-pointer inline-block sansFont  text-orange-800 dark:text-[#f5c570] font-semibold text-lg relative group ">
+                      View menu
+                      <span className="absolute -bottom-[.15rem] left-0 w-0 h-[.15rem] bg-orange-800 dark:bg-[#f5c570] group-hover:w-full group-hover:transition-all"></span>
+                      <span className="absolute -bottom-[.4rem] left-0 w-0 h-[.15rem] bg-orange-800 dark:bg-[#f5c570] group-hover:w-full group-hover:transition-all"></span>
+                    </p>
+                  </Link>
                 </div>
               </div>
               {/* appetizer bottom  */}
@@ -211,11 +216,13 @@ const WhatWeOffer = () => {
                   <h1 className=" sansFont text-2xl mb-2 font-semibold  text-gray-800 dark:text-white  ">
                     Drinks
                   </h1>
-                  <p className=" cursor-pointer inline-block sansFont  text-orange-800 dark:text-[#f5c570] font-semibold text-lg relative group ">
-                    View menu
-                    <span className="absolute -bottom-[.15rem] left-0 w-0 h-[.15rem] bg-orange-800 dark:bg-[#f5c570] group-hover:w-full group-hover:transition-all"></span>
-                    <span className="absolute -bottom-[.4rem] left-0 w-0 h-[.15rem] bg-orange-800 dark:bg-[#f5c570] group-hover:w-full group-hover:transition-all"></span>
-                  </p>
+                  <Link to={`menu`}>
+                    <p className=" cursor-pointer inline-block sansFont  text-orange-800 dark:text-[#f5c570] font-semibold text-lg relative group ">
+                      View menu
+                      <span className="absolute -bottom-[.15rem] left-0 w-0 h-[.15rem] bg-orange-800 dark:bg-[#f5c570] group-hover:w-full group-hover:transition-all"></span>
+                      <span className="absolute -bottom-[.4rem] left-0 w-0 h-[.15rem] bg-orange-800 dark:bg-[#f5c570] group-hover:w-full group-hover:transition-all"></span>
+                    </p>
+                  </Link>
                 </div>
               </div>
 

@@ -9,6 +9,7 @@ import WhyChoose from "../Components/WhyChoose";
 import TopSelling from "../Components/TopSelling";
 import { useLoaderData } from "react-router-dom";
 import UseAxios from "../Hooks/UseAxios";
+import { Helmet } from "react-helmet";
 
 const Home = () => {
   const { user, loading } = UseAuthContext();
@@ -36,6 +37,11 @@ const Home = () => {
 
   return (
     <div className="homeContainer   ">
+      <Helmet>
+        <title>Home</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
+
       <div className="homeWrapper dark:bg-gray-700  ">
         {/* her0 container  */}
 

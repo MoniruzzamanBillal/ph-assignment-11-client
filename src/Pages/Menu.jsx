@@ -6,7 +6,7 @@ import Loading from "../Components/Loading";
 import { useLoaderData } from "react-router-dom";
 import UseAxios from "../Hooks/UseAxios";
 import UseAuthContext from "../Hooks/UseAuthContext";
-
+import { Helmet } from "react-helmet";
 const Menu = () => {
   const { loading } = UseAuthContext();
   const baseAxiosUrl = UseAxios();
@@ -90,6 +90,11 @@ const Menu = () => {
   return (
     <div className="menuContainer relative bg-gray-50 dark:bg-[#161718] pt-[4rem] xsm:pt-[4.2rem] sm:pt-[4.5rem] md:pt-[5rem] pb-6 ">
       {/*  */}
+
+      <Helmet>
+        <title>Menu</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
 
       {/* background pattern  */}
       <div className="pattern  w-full h-full opacity-5 dark:opacity-40 absolute top-0 left-0 ">

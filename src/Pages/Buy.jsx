@@ -9,6 +9,7 @@ import UseAxios from "../Hooks/UseAxios";
 import UseAuthContext from "../Hooks/UseAuthContext";
 import Loading from "../Components/Loading";
 import UseAxiosSecure from "../Hooks/UseAxiosSecure";
+import { Helmet } from "react-helmet";
 
 const Buy = () => {
   const navigate = useNavigate();
@@ -95,20 +96,16 @@ const Buy = () => {
       .catch((error) => console.log(error));
   };
 
-  // console.log(menuData._id);
-  // console.log(id);
-  // console.log(month);
-  // console.log(date);
-  // console.log(year);
-
-  // console.log(user);
-
   if (loading) {
     return <Loading />;
   }
 
   return (
     <div className="purchaseContainer bg-white  dark:bg-[#161718] pt-[4rem] xsm:pt-[4.2rem] sm:pt-[4.5rem] md:pt-[5rem] pb-4 ">
+      <Helmet>
+        <title>Buy</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
       <div className="purchaseWrapper  w-[90%]  m-auto ">
         <h1 className="  text-5xl text-center font-semibold text-orange-500 dark:goldenText CormorantFont mb-3 ">
           Purchase Now{" "}

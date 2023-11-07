@@ -6,7 +6,7 @@ const TopSelling = ({ specificMenus }) => {
   // console.log(specificMenus);
 
   return (
-    <div className="topSelling bg-blue-50 dark:bg-[#161718] py-4 xsm:py-6 sm:py-8 md:py-10 relative ">
+    <div className="topSelling bg-blue-50 dark:bg-[#161718] py-4 xsm:py-6 sm:py-8 md:py-10 relative  ">
       {/* right top icon  */}
       <div className="rightTopIcon w-[7rem] md:w-[8rem] xmd:w-[9rem] lg:w-[10rem]  absolute top-0 right-0 ">
         <img
@@ -29,7 +29,7 @@ const TopSelling = ({ specificMenus }) => {
 
       <div className="topSellingWrapper  w-[90%] m-auto relative z-[10] ">
         {/*  */}
-        <div className="topHeading  text-center text-3xl font-semibold CormorantFont text-[#ffba24] dark:goldenText mb-1 ">
+        <div className="topHeading  text-center text-2xl xsm:text-3xl font-semibold CormorantFont text-[#ffba24] dark:goldenText mb-1 relative z-[10] ">
           <h1>Top selling items</h1>
         </div>
         {/*  */}
