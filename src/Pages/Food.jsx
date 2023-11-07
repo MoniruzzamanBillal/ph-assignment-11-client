@@ -21,18 +21,12 @@ const Food = () => {
   const [menu, setMenu] = useState(null);
   const { id } = useParams();
 
-  // console.log(id);
-
   const { data, isLoading } = useQuery("menu", () => {
     baseAxios
       .get(`/menu/${id} `)
       .then((response) => setMenu(response.data))
       .catch((error) => console.log(error));
   });
-
-  // console.log(menu);
-
-  // console.log(menu?.ingredients);
 
   if (isLoading) {
     return <Loading />;

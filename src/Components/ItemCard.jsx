@@ -2,17 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const ItemCard = ({ menu }) => {
-  // console.log(menu);
-  const {
-    foodCategory,
-    foodImage,
-    foodName,
-    foodOrigin,
-    ingredients,
-    price,
-    quantity,
-    _id,
-  } = menu;
+  const { foodCategory, foodImage, foodName, price, quantity, _id } = menu;
 
   return (
     <div className="max-w-sm m-auto group  bg-white  border border-gray-200 rounded-lg shadow dark:bg-gray-600 dark:border-gray-700 overflow-hidden ">
