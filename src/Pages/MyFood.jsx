@@ -3,6 +3,7 @@ import ItemCard from "../Components/ItemCard";
 import UseAuthContext from "../Hooks/UseAuthContext";
 import Loading from "../Components/Loading";
 import { useLoaderData } from "react-router-dom";
+import MyItemCard from "../Components/MyItemCard";
 
 const MyFood = () => {
   const { user, loading } = UseAuthContext();
@@ -10,13 +11,13 @@ const MyFood = () => {
   // userEmail
 
   // console.log(menuItems);
-  console.log(user.email);
+  // console.log(user.email);
 
   const myAddedProduct = menuItems.filter(
-    (menu) => menu.userEmail === user.email
+    (menu) => menu?.userEmail === user?.email
   );
 
-  console.log(myAddedProduct);
+  // console.log(myAddedProduct);
 
   if (loading) {
     return <Loading />;
@@ -54,10 +55,15 @@ const MyFood = () => {
       {/* item card section  */}
 
       {/* item card */}
+
+      {myAddedProduct && myAddedProduct?.length === 0 ? <NoItem /> : ""}
+
       <div className="itemCard relative z-[10]  mt-1 xsm:mt-2 sm:mt-4 w-[96%] sm:w-[90%] m-auto grid grid-cols-1 xsm:grid-cols-2 xmd:grid-cols-3 lg:grid-cols-4 gap-x-5 gap-y-8 ">
-        {myAddedProduct.map((menu, ind) => (
-          <ItemCard key={ind} menu={menu} />
-        ))}
+        {myAddedProduct &&
+          // myAddedProduct.map((menu, ind) => <ItemCard key={ind} menu={menu} />)}
+          myAddedProduct.map((menu, ind) => (
+            <MyItemCard key={ind} menu={menu} />
+          ))}
       </div>
 
       {/* item card */}
@@ -68,3 +74,13 @@ const MyFood = () => {
 };
 
 export default MyFood;
+
+const NoItem = () => {
+  return (
+    <>
+      <h1 className=" relative z-[10] text-6xl text-center py-6 CormorantFont text-orange-600 dark:goldenText  ">
+        No items added{" "}
+      </h1>
+    </>
+  );
+};

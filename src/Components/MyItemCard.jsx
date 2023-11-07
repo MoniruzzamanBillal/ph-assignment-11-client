@@ -1,13 +1,32 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const ItemCard = ({ menu }) => {
+import { FiEdit } from "react-icons/fi";
+
+const MyItemCard = ({ menu }) => {
+  const navigate = useNavigate();
   const { foodCategory, foodImage, foodName, price, quantity, _id } = menu;
+
+  const handleUpdate = (id) => {
+    // console.log("click");
+    // console.log(id);
+    navigate(`/updateFood/${id}`);
+  };
 
   return (
     <div className="max-w-sm m-auto group  bg-white  border border-gray-200 rounded-lg shadow dark:bg-gray-600 dark:border-gray-700 overflow-hidden ">
-      <div className="cardImg  flex justify-center items-center self-center group-hover:scale-105 duration-500 ">
+      <div className="cardImg relative  flex justify-center items-center self-center group-hover:scale-105 duration-500 ">
         <img className="rounded-t-lg" src={foodImage} alt="" />
+
+        {/* update button  */}
+        <div
+          className="updateBtn absolute right-5 bottom-3 bg-gray-500 text-white rounded-md p-1.5 flex  justify-between items-center text-xs cursor-pointer  "
+          onClick={() => handleUpdate(_id)}
+        >
+          <FiEdit />
+          <h1>update</h1>
+        </div>
+        {/* update button  */}
       </div>
       <div className=" cardBody p-3 sm:p-2 md:p-3 bg-gray-100 dark:bg-gray-500 flex flex-col  ">
         {/* \ */}
@@ -62,4 +81,4 @@ const ItemCard = ({ menu }) => {
   );
 };
 
-export default ItemCard;
+export default MyItemCard;
