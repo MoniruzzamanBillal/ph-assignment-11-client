@@ -13,6 +13,10 @@ const navLink = [
     item: "Our Menu",
     link: "/menu",
   },
+  {
+    item: "Blog",
+    link: "/blog",
+  },
 
   {
     item: "My Cart",

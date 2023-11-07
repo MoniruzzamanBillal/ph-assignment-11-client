@@ -1,13 +1,13 @@
 import React from "react";
 import UseInputHook from "../Hooks/UseInputHook";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import UseAuthContext from "../Hooks/UseAuthContext";
 import Loading from "../Components/Loading";
-
 const Login = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const { user, loading, emailLogin } = UseAuthContext();
   const emailInput = UseInputHook();
   const passwordInput = UseInputHook();
@@ -48,7 +48,7 @@ const Login = () => {
 
         setTimeout(() => {
           navigate(location?.state ? location.state : "/");
-        }, "800");
+        }, "1200");
         loggedInSuccessfully();
       })
       .catch((error) => {

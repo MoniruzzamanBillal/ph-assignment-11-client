@@ -11,11 +11,15 @@ import AddFood from "../Pages/AddFood";
 import Order from "../Pages/Order";
 import MyFood from "../Pages/MyFood";
 import UpdateProduct from "../Pages/UpdateProduct";
+import ErrorPage from "../Pages/ErrorPage";
+import PrivateRoute from "./PrivateRoute";
+import Blog from "../Pages/Blog";
 
 const Router = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout />,
+    errorElement: <ErrorPage />,
     children: [
       {
         path: "/",
@@ -25,6 +29,10 @@ const Router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+      },
+      {
+        path: "/blog",
+        element: <Blog />,
       },
       {
         path: "/menu",
@@ -38,7 +46,12 @@ const Router = createBrowserRouter([
       {
         // path: "/buy/:id",
         path: "/buy/:id",
-        element: <Buy />,
+        // element: <Buy />,
+        element: (
+          <PrivateRoute>
+            <Buy />
+          </PrivateRoute>
+        ),
         loader: ({ params }) =>
           fetch(`http://localhost:5000/menu/${params.id}`),
       },
@@ -52,7 +65,12 @@ const Router = createBrowserRouter([
       },
       {
         path: "/order",
-        element: <Order />,
+        // element: <Order />,
+        element: (
+          <PrivateRoute>
+            <Order />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myFood",
