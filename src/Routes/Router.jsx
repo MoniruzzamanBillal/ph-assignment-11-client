@@ -50,6 +50,7 @@ const Router = createBrowserRouter([
       {
         path: "/myFood",
         element: <MyFood />,
+        loader: () => fetch("http://localhost:5000/menus"),
       },
     ],
   },

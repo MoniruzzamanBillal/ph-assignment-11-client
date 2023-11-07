@@ -44,8 +44,9 @@ const Food = () => {
 
           <div className=" relative  w-full xsm:w-[94%] xmd:w-[90%] lg:w-[80%] flex flex-col md:flex-row items-center bg-white  dark:bg-gray-800 ">
             {/* bg image  */}
-            <div className="bgImage  opacity-5 absolute top-[50%] left-[50%] transform -translate-x-1/2  -translate-y-1/2 ">
-              <img src="https://i.ibb.co/JkyRjPr/shape-9.png" alt="" />
+            <div className="bgImage  opacity-10 absolute top-[50%] left-[50%] transform -translate-x-1/2  -translate-y-1/2 ">
+              <img src={menu.foodImage} alt="" />
+              {/* foodImage */}
             </div>
             {/* bg image  */}
 
