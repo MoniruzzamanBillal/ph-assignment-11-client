@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { BsFillSunFill, BsFillMoonFill } from "react-icons/bs";
 import { RiMenu3Fill, RiCloseFill, RiXingLine } from "react-icons/ri";
 import UseAuthContext from "../Hooks/UseAuthContext";
+import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 
 const navLink = [
   {
@@ -40,6 +41,7 @@ const avatarItems = [
 ];
 
 const NavBar = () => {
+  const axiosSecure = UseAxiosSecure();
   const { user, loading, darkMode, toggleTheme, logOut } = UseAuthContext();
   const [toggle, setToggle] = useState(false);
   const [toggleAvatar, setToggleAvatar] = useState(false);
@@ -78,6 +80,11 @@ const NavBar = () => {
     logOut()
       .then((response) => console.log(response))
       .catch((error) => console.log(error));
+
+    axiosSecure
+      .get("/logout")
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   };
 
   //
@@ -144,12 +151,11 @@ const NavBar = () => {
               {user?.photoURL && (
                 <div className="flex items-center gap-1 cursor-pointer ">
                   <p className=" dancingFont font-semibold text-xs lg:text-sm">
-                    {" "}
-                    {user.displayName}{" "}
+                    {user?.displayName}
                   </p>
                   <img
                     className=" w-7 h-7 lg:w-9 lg:h-9  rounded-full ring-1 ring-gray-300 dark:ring-gray-500"
-                    src={user.photoURL}
+                    src={user?.photoURL}
                     alt="Bordered avatar"
                   />
                 </div>

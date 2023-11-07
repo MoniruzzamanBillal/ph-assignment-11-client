@@ -8,11 +8,13 @@ import { useLoaderData, useNavigate, useParams } from "react-router-dom";
 import UseAxios from "../Hooks/UseAxios";
 import UseAuthContext from "../Hooks/UseAuthContext";
 import Loading from "../Components/Loading";
+import UseAxiosSecure from "../Hooks/UseAxiosSecure";
 
 const Buy = () => {
   const navigate = useNavigate();
   const { user, loading } = UseAuthContext();
   const axiosUrl = UseAxios();
+  const axiosSecure = UseAxiosSecure();
   const { id } = useParams();
   const menuData = useLoaderData();
   const [startDate, setStartDate] = useState(new Date());
@@ -78,7 +80,6 @@ const Buy = () => {
     // console.log(sendData);
 
     axiosUrl
-      // .post("/addCart", sendData)
       .patch("/addCart", sendData)
       .then((response) => {
         console.log(response?.data);

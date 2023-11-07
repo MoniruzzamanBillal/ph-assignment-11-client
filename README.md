@@ -1,8 +1,18 @@
-# React + Vite
+# Resto
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+---
 
-Currently, two official plugins are available:
+#### Features of my project -
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- I get data from Mongodb database , then show them in card dynamically
+- I can make new user by registering with name , email ,password , imageURl
+- If password does not meet the condition then i show a modal .
+- I can login with google .
+- When I click on a card , it opens in a new route and show the details of the card
+- Without logged in , details don't show . It redirects to the login page
+
+---
+
+### live link : https://resto-fe8f1.web.app/
+
+---

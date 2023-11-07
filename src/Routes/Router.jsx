@@ -24,7 +24,8 @@ const Router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch("http://localhost:5000/menus"),
+        loader: () => fetch("https://resto-server11.vercel.app/menus"),
+        // loader: () => fetch("http://localhost:5000/menus"),
       },
       {
         path: "/login",
@@ -37,11 +38,17 @@ const Router = createBrowserRouter([
       {
         path: "/menu",
         element: <Menu />,
-        loader: () => fetch("http://localhost:5000/searchMenu"),
+        loader: () => fetch("https://resto-server11.vercel.app/searchMenu"),
+        // loader: () => fetch("http://localhost:5000/searchMenu"),
       },
       {
         path: "/food/:id",
-        element: <Food />,
+        // element: <Food />,
+        element: (
+          <PrivateRoute>
+            <Food />
+          </PrivateRoute>
+        ),
       },
       {
         // path: "/buy/:id",
@@ -53,7 +60,8 @@ const Router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/menu/${params.id}`),
+          fetch(`https://resto-server11.vercel.app/menu/${params.id}`),
+        // fetch(`http://localhost:5000/menu/${params.id}`),
       },
       {
         path: "/addFood",
@@ -75,7 +83,8 @@ const Router = createBrowserRouter([
       {
         path: "/myFood",
         element: <MyFood />,
-        loader: () => fetch("http://localhost:5000/menus"),
+        loader: () => fetch("https://resto-server11.vercel.app/menus"),
+        // loader: () => fetch("http://localhost:5000/menus"),
       },
     ],
   },

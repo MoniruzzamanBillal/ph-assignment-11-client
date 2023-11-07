@@ -5,14 +5,19 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import UseAuthContext from "../Hooks/UseAuthContext";
 import Loading from "../Components/Loading";
+import axios from "axios";
+import UseAxios from "../Hooks/UseAxios";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "../Utilities/Firebase.config";
 const Login = () => {
+  const axiosUrl = UseAxios();
   const navigate = useNavigate();
   const location = useLocation();
   const { user, loading, emailLogin } = UseAuthContext();
   const emailInput = UseInputHook();
   const passwordInput = UseInputHook();
 
-  console.log(user);
+  // console.log(user);
 
   //   toast for success
   const loggedInSuccessfully = () =>
@@ -44,7 +49,15 @@ const Login = () => {
   const handleLogin = () => {
     emailLogin(emailInput.value, passwordInput.value)
       .then((user) => {
-        console.log(user);
+        // console.log(user?.user?.email);
+
+        const loggedUser = { email: emailInput.value };
+        console.log(loggedUser);
+
+        axiosUrl
+          .post("/jwt", loggedUser, { withCredentials: true })
+          .then((response) => console.log(response.data))
+          .catch((error) => console.log(error));
 
         setTimeout(() => {
           navigate(location?.state ? location.state : "/");
@@ -58,6 +71,21 @@ const Login = () => {
 
     emailInput.reset();
     passwordInput.reset();
+  };
+
+  // google login
+  const handleGoogleLogin = () => {
+    console.log("google login click");
+    const googleProvider = new GoogleAuthProvider();
+    signInWithPopup(auth, googleProvider)
+      .then((response) => {
+        loggedInSuccessfully();
+
+        setTimeout(() => {
+          navigate(location?.state ? location.state : "/");
+        }, "1200");
+      })
+      .catch((error) => console.log(error));
   };
 
   if (loading) {
@@ -122,6 +150,7 @@ const Login = () => {
               {/*  */}
               <div class="flex justify-center item-center  py-4">
                 <button
+                  onClick={() => handleGoogleLogin()}
                   type="button"
                   class="py-2 px-4 flex justify-center items-center  bg-red-600 hover:bg-red-700 focus:ring-red-500 focus:ring-offset-red-200 text-white w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg "
                 >
