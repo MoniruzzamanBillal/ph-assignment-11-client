@@ -7,6 +7,9 @@ import { useLoaderData } from "react-router-dom";
 import UseAxios from "../Hooks/UseAxios";
 import UseAuthContext from "../Hooks/UseAuthContext";
 import { Helmet } from "react-helmet";
+import { motion } from "framer-motion";
+
+//
 const Menu = () => {
   const { loading } = UseAuthContext();
   const baseAxiosUrl = UseAxios();
@@ -108,7 +111,12 @@ const Menu = () => {
 
       {/*  */}
 
-      <div className="menuWrapper m-auto relative z-[10]  ">
+      <motion.div
+        initial={{ x: "-1500", opacity: 0.4, scale: 0.5 }}
+        animate={{ x: 0, opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+        className="menuWrapper m-auto relative z-[10]  "
+      >
         {/* searchSection */}
         <div
           className="searchSection  h-[14rem] py-10 flex flex-col items-center  bg-cover bg-center "
@@ -167,7 +175,7 @@ const Menu = () => {
           </div>
         </div>
         {/* searchSection */}
-      </div>
+      </motion.div>
 
       {/* item card section  */}
       {searchMenu?.length <= 0 ? (

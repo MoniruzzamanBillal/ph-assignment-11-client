@@ -4,6 +4,7 @@ import UseAuthContext from "../Hooks/UseAuthContext";
 import Loading from "../Components/Loading";
 import { useLoaderData } from "react-router-dom";
 import MyItemCard from "../Components/MyItemCard";
+import { Helmet } from "react-helmet";
 
 const MyFood = () => {
   const { user, loading } = UseAuthContext();
@@ -25,6 +26,11 @@ const MyFood = () => {
 
   return (
     <div className="menuContainer relative bg-gray-50 dark:bg-[#161718] pt-[4rem] xsm:pt-[4.2rem] sm:pt-[4.5rem] md:pt-[5rem] pb-6 ">
+      <Helmet>
+        <title>My Food</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
+
       {/*  */}
 
       {/* background pattern  */}

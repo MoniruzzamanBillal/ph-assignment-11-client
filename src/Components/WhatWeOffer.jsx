@@ -90,12 +90,12 @@ const WhatWeOffer = () => {
             initial={{ y: "100", opacity: 0 }}
             animate={inView ? { y: 0, opacity: 1 } : {}}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className="smallDescription text-sm sm:text-base xmd:text-lg w-[55%] md:w-[48%] xmd:w-[40%] lg:w-[34%] m-auto text-center mb-8   text-gray-800 dark:text-gray-50  "
+            className="smallDescription text-xs sm:text-sm md:text-base xmd:text-lg w-[62%] xsm:w-[58%] sm:w-[55%] md:w-[48%] xmd:w-[40%] lg:w-[34%] m-auto text-center mb-8   text-gray-800 dark:text-gray-50  "
           >
-            <p>
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry lorem Ipsum has been the industrys standard dummy text
-              ever.
+            <p className="">
+              We're committed to delivering top-notch quality in every aspect of
+              your dining experience – from our finest ingredients to
+              exceptional service. Join us for a memorable meal.
             </p>
           </motion.div>
           {/* small description  */}

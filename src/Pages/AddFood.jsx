@@ -5,6 +5,7 @@ import UseAuthContext from "../Hooks/UseAuthContext";
 import Loading from "../Components/Loading";
 import UseAxios from "../Hooks/UseAxios";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const AddFood = () => {
   const navigate = useNavigate();
@@ -109,6 +110,11 @@ const AddFood = () => {
         backgroundImage: `url('https://i.ibb.co/YkqyRSG/footer-bg.jpg')`,
       }}
     >
+      <Helmet>
+        <title>Add food</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
+
       <div className=" py-4 relative mainContiner flex flex-col  w-full items-center justify-center  bg-no-repeat bg-cover bg-center ">
         <h1 className="   robotoFont font-semibold text-4xl mb-4 text-[#e4c590]  ">
           Add your Product

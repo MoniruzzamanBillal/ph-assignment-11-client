@@ -3,6 +3,7 @@ import UseAxios from "../Hooks/UseAxios";
 import UseAuthContext from "../Hooks/UseAuthContext";
 import OrderItem from "../Components/OrderItem";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 const Order = () => {
   const navigate = useNavigate();
@@ -78,6 +79,11 @@ const Order = () => {
 
   return (
     <div className=" bg-gray-200  dark:bg-[#161718] pt-20 pb-12 ">
+      <Helmet>
+        <title>Cart</title>
+        <meta name="description" content="Helmet application" />
+      </Helmet>
+
       <h1 className="mb-2 mt-4 text-center text-4xl font-bold CormorantFont text-orange-600 dark:goldenText  ">
         My order
       </h1>

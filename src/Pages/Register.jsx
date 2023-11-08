@@ -97,12 +97,12 @@ const Register = () => {
   };
 
   const handleRegister = () => {
-    console.log("register click");
+    // console.log("register click");
 
-    console.log(nameInput.value);
-    console.log(photoInput.value);
-    console.log(emailInput.value);
-    console.log(passwordlInput.value);
+    // console.log(nameInput.value);
+    // console.log(photoInput.value);
+    // console.log(emailInput.value);
+    // console.log(passwordlInput.value);
 
     // Check any input fields are empty
     if (
@@ -114,10 +114,9 @@ const Register = () => {
       return inputFieldError();
     } else if (!isChecked) {
       return termError();
+    } else if (!isPasswordValid(passwordlInput.value)) {
+      return passwordValidationError();
     }
-    // else if (!isPasswordValid(passwordlInput.value)) {
-    //   return passwordValidationError();
-    // }
 
     //
 

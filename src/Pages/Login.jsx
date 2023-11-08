@@ -93,10 +93,6 @@ const Login = () => {
       .catch((error) => console.log(error));
   };
 
-  if (loading) {
-    return <Loading />;
-  }
-
   return (
     <div
       className="w-full pb-10 font-sans bg-cover bg-landscape  pt-[5rem] "
